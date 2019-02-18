@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Operations</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            margin: 10px;
+            padding: 10px;
+        }
+        
+        .inline_wide {
+            display: inline-block;
+            width: 100%;
+        }
+        
+        body {
+            text-align: center;
+        }
+        
+        body > * {
+            text-align: left;
+        }
+        
+        form {
+            display: inline-block;
+        }
+    </style>
+	<script>
+		function validateForm() {
+			if (document.getElementById("check_Sum").checked || document.getElementById("check_Diff").checked || document.getElementById("check_Prod").checked) {
+				return true;
+			} else {
+				alert('At least one check box must be checked.');
+				return false;
+			}
+		}
+	</script>
+</head>
+
+<body>
+    <hr>
+    <form action='Compute' onsubmit="return validateForm()" method='POST'>
+        <table>
+            <tr>
+                <td>First Number</td>
+                <td>
+					<input type='number' name='First_Number' required autofocus>
+                </td>
+            </tr>
+			<tr>
+				<td>Second Number</td>
+				<td>
+					<input type='number' name='Second_Number' required>
+				</td>
+			</tr>
+			<tr>
+				<td colspan='2'>
+					<input type="checkbox" name="Sum_Input" value="true" id="check_Sum"> Sum <br>
+					<input type="checkbox" name="Difference_Input" value="true" id="check_Diff"> Difference <br>
+					<input type="checkbox" name="Product_Input" value="true" id="check_Prod"> Product <br>
+				</td>
+			</tr>
+            <tr>
+                <td colspan='2'>
+                    <input type='submit' class='inline_wide' value='Perform Selected Operations'>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <hr>
+</body>
