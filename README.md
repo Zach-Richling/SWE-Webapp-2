@@ -1,5 +1,5 @@
 # Software Engineering - Weather Web Application
-The web application displays weather information in the surrounding Omaha, Nebraska area.
+The web application displays weather information based on a selected zip code.
 
 Purpose
 =======
