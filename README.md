@@ -17,4 +17,5 @@ Todo
 - [X] System Test Plan
 - [X] Weather Information (Openweather API)
 - [ ] Web Application
-- [ ] Web Application Functionality
+- [ ] Web Application Testing
+- [ ] Functionality Validation
