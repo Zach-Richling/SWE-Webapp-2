@@ -22,7 +22,7 @@ public class Compute extends HttpServlet {
 		}
 		String htmlServlet = "";
 		int col = 2;
-		htmlServlet = htmlServlet + "<!DOCTYPE html> <html> <head> <meta charset="UTF-8"> <title>title</title> </head> <body> </body> </html>";
+		htmlServlet = htmlServlet + "<!DOCTYPE html> <html> <head> <meta charset='UTF-8'> <title>Test Page</title> </head> <body> </body> </html>";
 		out.print(htmlServlet);
 		out.close();
 		return;
