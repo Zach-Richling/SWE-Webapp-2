@@ -34,8 +34,7 @@ public class WeatherAPICall {
 			con = (HttpURLConnection) myurl.openConnection();
 			con.setRequestMethod("GET");
 			StringBuilder content;
-			BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()))
-			try {
+			try (BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()))) {
 				String line;
 				content = new StringBuilder();
 				while ((line = in.readLine()) != null) {
@@ -51,7 +50,6 @@ public class WeatherAPICall {
 			}
 		} finally {
 			con.disconnect();
-			in.close();
 		}
 	}
 }
