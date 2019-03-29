@@ -33,6 +33,11 @@
     <finalName>embeddedTomcatSample</finalName>
     <plugins>
       <plugin>
+		<artifactId>maven-compiler-plugin</artifactId>
+		<configuration>
+			<source>1.7</source>
+			<target>1.7</target>
+		</configuration>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>appassembler-maven-plugin</artifactId>
         <version>1.1.1</version>
@@ -56,11 +61,4 @@
       </plugin>
     </plugins>
   </build>
-  <plugin>
-    <artifactId>maven-compiler-plugin</artifactId>
-    <configuration>
-      <source>7</source>
-      <target>7</target>
-    </configuration>
-</plugin>
 </project>
