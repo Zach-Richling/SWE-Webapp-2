@@ -11,17 +11,24 @@ public class Compute extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		final PrintWriter out = response.getWriter();
+		Cookie[] cookieArray;
 		if (request.getCookies() == null) {
 			// Add cookies here if the user does not have any
 			Cookie userCookie = new Cookie("first_name", request.getParameter("First_Name"));
 			response.addCookie(userCookie);
-		} else {
-			// If the user does have a cookie do something with them.
-			Cookie[] cookieArray = request.getCookies();
 		}
-		
+		Cookie[] cookieArray = request.getCookies();
 		String htmlServlet = "";
-		htmlServlet = htmlServlet + "<!DOCTYPE html> <html> <head> <meta charset='UTF-8'> <title>Test Page</title></head> <body> <p> The servlet works! <p/> </body> </html>";
+		htmlServlet = htmlServlet + "<!DOCTYPE html>" +
+		"<html>" + 
+		"<head>" +
+		"<meta charset='UTF-8'>" + 
+		"<title>Test Page</title>" +
+		"</head>" + 
+		"<body>" + 
+		"<p> Hello, " + cookieArray[0].getValue() + "<p/>" + 
+		"</body>" + 
+		"</html>";
 		out.print(htmlServlet);
 		out.close();
 		return;
