@@ -48,4 +48,9 @@ public class WeatherAPICall {
 			con.disconnect();
 		}
 	}
+	
+	public static void main(String [] args) {
+		WeatherAPICall userInfo = new WeatherAPICall("68135");
+		System.out.println(((JSONObject) ((JSONObject) userInfo.array.get(0)).get("main")).get("temp"));
+	}
 }
