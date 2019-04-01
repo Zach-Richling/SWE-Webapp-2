@@ -12,17 +12,12 @@ public class Compute extends HttpServlet {
 		response.setContentType("text/html");
 		final PrintWriter out = response.getWriter();
 		Cookie[] cookieArray = request.getCookies();
-		if (request.getCookies() == null) {
+		String checkValue = "didnt get there";
+		if (cookieArray == null) {
 			// Add cookies here if the user does not have any
-			Cookie userCookie = new Cookie("first_name", request.getParameter("First_Name"));
-			response.addCookie(userCookie);
-		} else {
-			for(Cookie cookie : cookieArray) {
-				cookie.setValue("");
-				cookie.setPath("/");
-				cookie.setMaxAge(0);
-			}
-		}
+			response.addCookie(new Cookie("first_name", request.getParameter("First_Name")));
+			checkValue = "got here";
+		} 
 		String htmlServlet = "";
 		htmlServlet = htmlServlet + "<!DOCTYPE html>" +
 		"<html>" + 
@@ -31,7 +26,7 @@ public class Compute extends HttpServlet {
 		"<title>Test Page</title>" +
 		"</head>" + 
 		"<body>" + 
-		"<p> Hello, " + cookieArray[0].getValue() + "<p/>" + 
+		"<p> Hello, " + checkValue + "<p/>" + 
 		"</body>" + 
 		"</html>";
 		out.print(htmlServlet);
