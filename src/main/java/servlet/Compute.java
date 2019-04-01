@@ -20,7 +20,7 @@ public class Compute extends HttpServlet {
 			Cookie[] cookieArray = request.getCookies();
 		}
 		String htmlServlet = "";
-		htmlServlet = htmlServlet + "<!DOCTYPE html> <html> <head> <meta charset='UTF-8'> <title>Test Page</title> </head> <body> </body> </html>";
+		htmlServlet = htmlServlet + "<!DOCTYPE html> <html> <head> <meta charset='UTF-8'> <title>Test Page</title></head> <body> <p> The servlet works! <p/> </body> </html>";
 		out.print(htmlServlet);
 		out.close();
 		return;
