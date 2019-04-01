@@ -11,7 +11,7 @@ public class Compute extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		final PrintWriter out = response.getWriter();
-		if (request.getCookies().length == 0) {
+		if (request.getCookies() == null) {
 			// Add cookies here if the user does not have any
 			Cookie userCookie = new Cookie("name", "value");
 			response.addCookie(userCookie);
