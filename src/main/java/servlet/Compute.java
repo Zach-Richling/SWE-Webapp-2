@@ -9,6 +9,7 @@ import org.apache.commons.lang3.*;
 public class Compute extends HttpServlet {
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		WeatherAPICall data = new WeatherAPICall(request.getParameter("Zip_Code"));
 		response.setContentType("text/html");
 		final PrintWriter out = response.getWriter();
 		Cookie[] cookieArray = request.getCookies();
@@ -18,7 +19,7 @@ public class Compute extends HttpServlet {
 			response.addCookie(new Cookie("first_name", request.getParameter("First_Name")));
 			checkValue = "got here";
 		} else {
-			checkValue = cookieArray[0].getValue();
+			
 		}
 		String htmlServlet = "";
 		htmlServlet = htmlServlet + "<!DOCTYPE html>" +
