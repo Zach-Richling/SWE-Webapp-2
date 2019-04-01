@@ -25,7 +25,7 @@ public class Compute extends HttpServlet {
 		"<title>Test Page</title>" +
 		"</head>" + 
 		"<body>" + 
-		"<p> Hello, " + cookieArray[0].getValue() + "<p/>" + 
+		"<p> Hello, " + cookieArray[0].getName() + "<p/>" + 
 		"</body>" + 
 		"</html>";
 		out.print(htmlServlet);
