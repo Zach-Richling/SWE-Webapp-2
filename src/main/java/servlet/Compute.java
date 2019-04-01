@@ -17,6 +17,7 @@ public class Compute extends HttpServlet {
 			response.addCookie(userCookie);
 		}
 		Cookie[] cookieArray = request.getCookies();
+		cookieArray[0].setValue(request.getParameter("First_Name"));
 		String htmlServlet = "";
 		htmlServlet = htmlServlet + "<!DOCTYPE html>" +
 		"<html>" + 
@@ -25,7 +26,7 @@ public class Compute extends HttpServlet {
 		"<title>Test Page</title>" +
 		"</head>" + 
 		"<body>" + 
-		"<p> Hello, " + cookieArray[0].getName() + "<p/>" + 
+		"<p> Hello, " + cookieArray[0].getValue() + "<p/>" + 
 		"</body>" + 
 		"</html>";
 		out.print(htmlServlet);
