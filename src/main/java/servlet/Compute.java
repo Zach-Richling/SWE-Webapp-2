@@ -23,8 +23,11 @@ public class Compute extends HttpServlet {
 		} else {
 			
 		}
-		
+		try{
 		checkValue = ((JSONObject) ((JSONObject) data.array.get(0)).get("main")).get("temp").toString();
+		} catch (Exception e) {
+			
+		}
 		String htmlServlet = "";
 		htmlServlet = htmlServlet + "<!DOCTYPE html>" +
 		"<html>" + 
