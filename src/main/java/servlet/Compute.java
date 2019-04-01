@@ -13,12 +13,13 @@ public class Compute extends HttpServlet {
 		final PrintWriter out = response.getWriter();
 		if (request.getCookies() == null) {
 			// Add cookies here if the user does not have any
-			Cookie userCookie = new Cookie("name", "value");
+			Cookie userCookie = new Cookie("first_name", request.getParameter("First_Name"));
 			response.addCookie(userCookie);
 		} else {
 			// If the user does have a cookie do something with them.
 			Cookie[] cookieArray = request.getCookies();
 		}
+		
 		String htmlServlet = "";
 		htmlServlet = htmlServlet + "<!DOCTYPE html> <html> <head> <meta charset='UTF-8'> <title>Test Page</title></head> <body> <p> The servlet works! <p/> </body> </html>";
 		out.print(htmlServlet);
