@@ -4,7 +4,8 @@ import javax.servlet.http.*;
 import java.util.*;
 import javax.servlet.annotation.WebServlet;
 import org.apache.commons.lang3.*;
-import org.json.*;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 @WebServlet(name = "Compute", urlPatterns = { "/Compute" })
 public class Compute extends HttpServlet {
