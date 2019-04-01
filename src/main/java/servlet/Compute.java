@@ -22,8 +22,6 @@ public class Compute extends HttpServlet {
 				cookie.setPath("/");
 				cookie.setMaxAge(0);
 			}
-			Cookie userCookie = new Cookie("first_name", request.getParameter("First_Name"));
-			response.addCookie(userCookie);
 		}
 		String htmlServlet = "";
 		htmlServlet = htmlServlet + "<!DOCTYPE html>" +
