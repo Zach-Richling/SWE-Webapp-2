@@ -6,11 +6,6 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
 import org.json.*;
 
 
@@ -26,8 +21,8 @@ public class WeatherAPICall {
 
 	private static HttpURLConnection con;
 	private JSONObject json;
-	private JSONParser parser = new JSONParser();
 	public JSONArray array;
+	private JSONParser parser;
 	public WeatherAPICall(String zipcode) throws MalformedURLException, ProtocolException, IOException {
 		String url = "http://api.openweathermap.org/data/2.5/forecast?zip=" + zipcode
 				+ ",us&appid=8080d1949b56c215e309570924559b1e&units=imperial";
@@ -45,9 +40,10 @@ public class WeatherAPICall {
 				}
 			}
 			try {
-				json = (JSONObject) parser.parse(content.toString());
-				array = (JSONArray) parser.parse(json.get("list").toString());
-			} catch (ParseException e) {
+				parser = new JSONParser(content.toString());
+				json = new JSONObject(parser.toString());
+				array = new JSONArray(parser.toString());
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		} finally {
