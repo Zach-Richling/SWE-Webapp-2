@@ -24,7 +24,7 @@ public class Compute extends HttpServlet {
 			
 		}
 		try{
-		checkValue = ((JSONObject) ((JSONObject) data.array.get(0)).get("main")).get("temp").toString();
+		checkValue = ((JSONObject) ((JSONObject) data.array.get(0)).get("main")).get("temp");
 		} catch (Exception e) {
 			
 		}
