@@ -22,7 +22,8 @@ public class Compute extends HttpServlet {
 			
 		}
 		cookieArray[0].setMaxAge(0);
-		checkValue = Integer.toString(cookieArray.length);
+		response.addCookie(cookieArray[0]);
+		checkValue = Integer.parseString(cookieArray.length);
 		String htmlServlet = "";
 		htmlServlet = htmlServlet + "<!DOCTYPE html>" +
 		"<html>" + 
