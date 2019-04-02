@@ -21,7 +21,7 @@ public class Compute extends HttpServlet {
 		} else {
 			
 		}
-		cookieArray[0].setMaxAge(0)
+		cookieArray[0].setMaxAge(0);
 		checkValue = cookieArray.length;
 		String htmlServlet = "";
 		htmlServlet = htmlServlet + "<!DOCTYPE html>" +
