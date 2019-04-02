@@ -18,12 +18,7 @@ public class Compute extends HttpServlet {
 			// Add cookies here if the user does not have any
 			response.addCookie(new Cookie("first_name", request.getParameter("First_Name")));
 			checkValue = "got here";
-		} else {
-			
 		}
-		cookieArray[0].setMaxAge(0);
-		response.addCookie(cookieArray[0]);
-		checkValue = Integer.toString(cookieArray.length);
 		String htmlServlet = "";
 		htmlServlet = htmlServlet + "<!DOCTYPE html>" +
 		"<html>" + 
