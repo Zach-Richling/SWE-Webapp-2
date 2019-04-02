@@ -19,7 +19,7 @@ public class Compute extends HttpServlet {
 			response.addCookie(new Cookie("first_name", request.getParameter("First_Name")));
 			checkValue = "got here";
 		}
-		checkValue = Integer.toString(cookieArray.length);
+		checkValue = cookieArray[0].getName();
 		String htmlServlet = "";
 		htmlServlet = htmlServlet + "<!DOCTYPE html>" +
 		"<html>" + 
