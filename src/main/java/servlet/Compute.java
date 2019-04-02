@@ -4,8 +4,6 @@ import javax.servlet.http.*;
 import java.util.*;
 import javax.servlet.annotation.WebServlet;
 import org.apache.commons.lang3.*;
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 @WebServlet(name = "Compute", urlPatterns = { "/Compute" })
 public class Compute extends HttpServlet {
@@ -23,11 +21,8 @@ public class Compute extends HttpServlet {
 		} else {
 			
 		}
-		try{
-		checkValue = data.array.get(0).toString();
-		} catch (Exception e) {
-			
-		}
+		cookieArray[0].setMaxAge(0)
+		checkValue = cookieArray.length;
 		String htmlServlet = "";
 		htmlServlet = htmlServlet + "<!DOCTYPE html>" +
 		"<html>" + 
