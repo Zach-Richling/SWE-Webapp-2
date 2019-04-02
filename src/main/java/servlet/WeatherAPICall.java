@@ -8,11 +8,6 @@ import java.net.URL;
 
 import org.json.*;
 
-//Get Date
-// ((JSONObject)(((JSONArray)(userInfo.json.get("list"))).get(0))).get("dt")
-
-//Get Temp
-// ((JSONObject)(((JSONObject)(((JSONArray)(userInfo.json.get("list"))).get(0))).get("main"))).get("temp")
 public class WeatherAPICall {
 
 	private static HttpURLConnection con;
