@@ -44,9 +44,9 @@ public class WeatherAPICall {
 	}
 	
 	public String getDateAtIndex(int index) {
-		String date = "";
+		String date = "default";
 		try {
-			date = ((JSONObject)(((JSONObject)(((JSONArray)(json.get("list"))).get(index))).get("dt"))).toString();
+			date = (((JSONObject)(((JSONArray)(json.get("list"))).get(0))).get("dt")).toString();
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -57,7 +57,7 @@ public class WeatherAPICall {
 	public String getTempAtIndex(int index) {
 		String temp = "";
 		try {
-			temp = ((JSONObject)(((JSONObject)(((JSONObject)(((JSONArray)(json.get("list"))).get(index))).get("main"))).get("temp"))).toString();
+			temp = ((JSONObject)((JSONObject)((JSONArray)json.get("list")).get(index)).get("main")).get("temp").toString();
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
@@ -67,19 +67,10 @@ public class WeatherAPICall {
 	public String getHumidityAtIndex(int index) {
 		String temp = "";
 		try {
-			temp = ((JSONObject)(((JSONObject)(((JSONObject)(((JSONArray)(json.get("list"))).get(index))).get("main"))).get("humidity"))).toString();
+			temp = ((JSONObject)((JSONObject)((JSONArray)json.get("list")).get(index)).get("main")).get("humidity").toString();
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
 		return temp;
-	}
-	
-	public static void main(String [] args) {
-		try {
-		WeatherAPICall userInfo = new WeatherAPICall("68135");
-		System.out.println(userInfo.getDateAtIndex(0));
-		} catch (Exception e){
-			
-		}
 	}
 }
