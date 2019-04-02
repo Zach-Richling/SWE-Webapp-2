@@ -8,20 +8,15 @@ import java.net.URL;
 
 import org.json.*;
 
+//Get Date
+// ((JSONObject)(((JSONArray)(userInfo.json.get("list"))).get(0))).get("dt")
 
-/*
-try {
-	WeatherAPICall userInfo = new WeatherAPICall("68135");
-	System.out.println(((JSONObject) ((JSONObject) userInfo.array.get(0)).get("main")).get("temp"));
-} catch (Exception e) {
-	System.out.println(e);
-}
-*/
+//Get Temp
+// ((JSONObject)(((JSONObject)(((JSONArray)(userInfo.json.get("list"))).get(0))).get("main"))).get("temp")
 public class WeatherAPICall {
 
 	private static HttpURLConnection con;
 	private JSONObject json;
-	public JSONArray array;
 	public WeatherAPICall(String zipcode) throws MalformedURLException, ProtocolException, IOException {
 		String url = "http://api.openweathermap.org/data/2.5/forecast?zip=" + zipcode
 				+ ",us&appid=8080d1949b56c215e309570924559b1e&units=imperial";
@@ -40,7 +35,6 @@ public class WeatherAPICall {
 			}
 			try {
 				json = new JSONObject(content.toString());
-				array = new JSONArray(content.toString());
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -49,8 +43,43 @@ public class WeatherAPICall {
 		}
 	}
 	
+	public String getDateAtIndex(int index) {
+		String date = "";
+		try {
+			date = ((JSONObject)(((JSONObject)(((JSONArray)(json.get("list"))).get(index))).get("dt"))).toString();
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return date;
+	}
+	
+	public String getTempAtIndex(int index) {
+		String temp = "";
+		try {
+			temp = ((JSONObject)(((JSONObject)(((JSONObject)(((JSONArray)(json.get("list"))).get(index))).get("main"))).get("temp"))).toString();
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		return temp;
+	}
+	
+	public String getHumidityAtIndex(int index) {
+		String temp = "";
+		try {
+			temp = ((JSONObject)(((JSONObject)(((JSONObject)(((JSONArray)(json.get("list"))).get(index))).get("main"))).get("humidity"))).toString();
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		return temp;
+	}
+	
 	public static void main(String [] args) {
+		try {
 		WeatherAPICall userInfo = new WeatherAPICall("68135");
-		System.out.println(((JSONObject) ((JSONObject) userInfo.array.get(0)).get("main")).get("temp"));
+		System.out.println(userInfo.getDateAtIndex(0));
+		} catch (Exception e){
+			
+		}
 	}
 }
