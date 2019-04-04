@@ -80,12 +80,18 @@
 	#formContainer {
 		background-color: white;
 		height: 100%;
-		width: 20%;
+		width: 15%;
 		position: fixed;
 		top: 0;
 		right: 0;
 		padding-left: 10px;
 		padding-top: 20px;
+	}
+	#formContainer .submitPref {
+		background-color: #0066ff;
+		border: none;
+		height: 25px;
+		color: white;
 	}
 	
 </style>
@@ -93,18 +99,14 @@
 <body>
 
 <div class="topnav" id="topNav">
-		<a class="active" href="#home"><b>Home</b></a>
-		<a href="#Today"><b>Today</b></a>
-		<a href="#Hourly"><b>Hourly</b></a>
-		<a href="#5-Day"><b>5 Day</b></a>
-		<a href="#10-Day"><b>10 Day</b></a>
+		<a class="active" href="#home" onclick="toggleDiv('formContainer')"><b>Home</b></a>
+		<a href="#/pref" onclick="toggleDiv('formContainer')"><b>Preferences</b></a>
+		<a href="#/data" onclick="toggleDiv('dataContainer')"><b>Weather Data</b></a>
 		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
 			<i class="fa fa-bars"></i>
 		</a>
-		<input type="Numeric" id="zipcode" placeholder="Enter zipcode..." maxlength="5">
 	</div>
-
-	<div style="padding-left:16px">
+	<div id="dataContainer" style="padding-left:16px">
 		<table cellspacing="22">
 		<tr style="text-align:left">
 			<th>Day</th>
@@ -123,20 +125,23 @@
 			<td>35%</td>
 		</tr>
 		</table>
+	</div>
 		<div id="formContainer">
 			<form>
 				<input type="Numeric" id="zipcode" placeholder="Enter zipcode..." maxlength="5"><br><br>
 				<input type="checkbox" name="CloudCover" value="cloud">Cloud Coverage</br>
-				<input type="checkbox" name="Pressure" value="pressure" checked>Pressure</br>
+				<input type="checkbox" name="Pressure" value="pressure">Pressure</br>
 				<input type="checkbox" name="HighLow" value="highlow">High/Low</br>
 				<input type="checkbox" name="Wind" value="wind">Wind</br>
 				<input type="checkbox" name="Precip" value="precip">Cloud Coverage</br>
 				<input type="checkbox" name="Humidity" value="humidity">Pressure</br>
-				<br><input type="submit" class='inline_wide' value="Update Preferences">
+				<br><input type="submit" class='submitPref' value="Update Preferences">
 				
 			</form>
 		</div>
 		<script>
+		document.getElementById("formContainer").style.display = "none";
+		document.getElementById("dataContainer").style.display = "none";
 		function myFunction() {
 			var x = document.getElementById("topNav");
 			if (x.className === "topnav") {
@@ -144,6 +149,22 @@
 			} else {
 				x.className = "topnav";
 			}
+		}
+		function toggleDiv(id){
+			var toHide = document.getElementById(id);
+			if(toHide.style.display == null || toHide.style.display == "none"){
+				toHide.style.display = "block";
+			}
+			else{
+				toHide.style.display = "none";
+			}
+		}
+		function goHome(){
+
+			if(document.getElementById("formContainer").style.display == "block")
+				toggleDiv("formContainer");
+			if(document.getElementById("dataContainer").style.display == "block")
+				toggleDiv("dataContainer");
 		}
 		</script>
 
