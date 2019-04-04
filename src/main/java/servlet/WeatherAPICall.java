@@ -11,7 +11,7 @@ import org.json.*;
 public class WeatherAPICall {
 
 	private static HttpURLConnection con;
-	public JSONObject json;
+	private JSONObject json;
 	
 	public WeatherAPICall(String zipcode) throws MalformedURLException, ProtocolException, IOException {
 		String url = "http://api.openweathermap.org/data/2.5/forecast?zip=" + zipcode
