@@ -12,8 +12,8 @@ public class Compute extends HttpServlet {
 		WeatherAPICall data = new WeatherAPICall(request.getParameter("ZipCode"));
 		response.setContentType("text/html");
 		final PrintWriter out = response.getWriter();
-		/* Cookie[] cookieArray = request.getCookies();
 		String checkValue = "didnt get there";
+		/* Cookie[] cookieArray = request.getCookies();
 		if (cookieArray == null) {
 			// Add cookies here if the user does not have any
 			response.addCookie(new Cookie("first_name", request.getParameter("First_Name")));
