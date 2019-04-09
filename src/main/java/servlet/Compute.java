@@ -12,7 +12,7 @@ public class Compute extends HttpServlet {
 		WeatherAPICall data = new WeatherAPICall(request.getParameter("ZipCode"));
 		response.setContentType("text/html");
 		final PrintWriter out = response.getWriter();
-		Cookie[] cookieArray = request.getCookies();
+		/* Cookie[] cookieArray = request.getCookies();
 		String checkValue = "didnt get there";
 		if (cookieArray == null) {
 			// Add cookies here if the user does not have any
@@ -20,6 +20,8 @@ public class Compute extends HttpServlet {
 			checkValue = "got here";
 		}
 		checkValue = cookieArray[0].getValue();
+		*/
+		checkValue = request.getParameter("ZipCode");
 		String htmlServlet = "";
 		htmlServlet = htmlServlet + "<!DOCTYPE html>" +
 		"<html>" + 
