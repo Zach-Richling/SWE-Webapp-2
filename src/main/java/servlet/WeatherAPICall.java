@@ -11,7 +11,7 @@ import org.json.*;
 public class WeatherAPICall {
 
 	private static HttpURLConnection con;
-	private JSONObject json;
+	public JSONObject json;
 	
 	public WeatherAPICall(String zipcode) throws MalformedURLException, ProtocolException, IOException {
 		String url = "http://api.openweathermap.org/data/2.5/forecast?zip=" + zipcode
@@ -100,6 +100,17 @@ public class WeatherAPICall {
 		String temp = "";
 		try {
 			temp = ((JSONObject)((JSONObject)((JSONArray)json.get("list")).get(index)).get("wind")).get("speed").toString();
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		return temp;
+	}
+	
+	// Returns the amount of rain, if any, at a given index.
+	public String getRain(int index) {
+		String temp = "";
+		try {
+			temp = ((JSONObject)((JSONObject)((JSONArray)json.get("list")).get(index)).get("rain")).get("3h").toString();
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
