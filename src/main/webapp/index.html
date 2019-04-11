@@ -93,17 +93,23 @@
 		height: 25px;
 		color: white;
 	}
-	#HLCtemp{
-		background-color: blue;
+	#dataContainer {
+		height: 100%;
+		width: 100%;
+		position: relative;
+		background-image: linear-gradient(to bottom right, gray, white);
+	}
+	.periodData{
 		background-image: linear-gradient(to bottom right, #99c0ff, #fff38e);
 		width: 90%;
-		height: 100px;
-		margin-left: 5%;
-		margin-right: 5%;
-		margin-top: 20px;
-		padding-top: 5px;
-		padding-bottom: 5px;
-		padding-left: 20px;
+		height: 125px;
+		margin: 25px 5%;
+		border-radius: 15px 50px 30px;
+	}
+	.HighLowCurrent {
+		padding-top: 1px;
+		margin-left: 20px;
+		margin-right: 80%;
 	}
 	
 </style>
@@ -119,8 +125,53 @@
 		</a>
 	</div>
 	<div id="dataContainer" style="padding-left:16px">
-		<div id="HLCtemp">
-			<h1 id="currentTemp">55</h1><h3 id="highlowTemp">H: 62 / L: 30</h3><br>
+		<div class="periodData">
+			<div class="HighLowCurrent">
+				<h2>Now: 55&#176 </h2>
+				<h3>H: 62&#176 / L: 30&#176</h3><br>
+			</div>
+		</div>
+		<div class="periodData">
+			<div class="HighLowCurrent">
+				<h2>Now: 55&#176 </h2>
+				<h3>H: 62&#176 / L: 30&#176</h3><br>
+			</div>
+		</div>
+		<div class="periodData">
+			<div class="HighLowCurrent">
+				<h2>Now: 55&#176 </h2>
+				<h3>H: 62&#176 / L: 30&#176</h3><br>
+			</div>
+		</div>
+		<div class="periodData">
+			<div class="HighLowCurrent">
+				<h2>Now: 55&#176 </h2>
+				<h3>H: 62&#176 / L: 30&#176</h3><br>
+			</div>
+		</div>
+		<div class="periodData">
+			<div class="HighLowCurrent">
+				<h2>Now: 55&#176 </h2>
+				<h3>H: 62&#176 / L: 30&#176</h3><br>
+			</div>
+		</div>
+		<div class="periodData">
+			<div class="HighLowCurrent">
+				<h2>Now: 55&#176 </h2>
+				<h3>H: 62&#176 / L: 30&#176</h3><br>
+			</div>
+		</div>
+		<div class="periodData">
+			<div class="HighLowCurrent">
+				<h2>Now: 55&#176 </h2>
+				<h3>H: 62&#176 / L: 30&#176</h3><br>
+			</div>
+		</div>
+		<div class="periodData">
+			<div class="HighLowCurrent">
+				<h2>Now: 55&#176 </h2>
+				<h3>H: 62&#176 / L: 30&#176</h3><br>
+			</div>
 		</div>
 		<!---<table cellspacing="22">
 		<tr style="text-align:left">
@@ -157,7 +208,7 @@
 		</div>
 		<script>
 		document.getElementById("formContainer").style.display = "none";
-		document.getElementById("dataContainer").style.display = "none";
+		//document.getElementById("dataContainer").style.display = "none";
 		function myFunction() {
 			var x = document.getElementById("topNav");
 			if (x.className === "topnav") {
