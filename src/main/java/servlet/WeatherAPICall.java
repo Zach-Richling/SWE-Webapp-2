@@ -73,6 +73,28 @@ public class WeatherAPICall {
 		return temp;
 	}
 	
+	// Returns the minimum temperature for a given index.
+	public String getTempMinAtIndex(int index) {
+		String temp = "";
+		try {
+			temp = ((JSONObject)((JSONObject)((JSONArray)json.get("list")).get(index)).get("main")).get("temp_min").toString();
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		return temp;
+	}
+	
+	// Returns the maximum temperature for a given index.
+	public String getTempMaxAtIndex(int index) {
+		String temp = "";
+		try {
+			temp = ((JSONObject)((JSONObject)((JSONArray)json.get("list")).get(index)).get("main")).get("temp_max").toString();
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		return temp;
+	}
+	
 	// Returns the humidity for a day.
 	public String getHumidityAtIndex(int index) {
 		String temp = "";
@@ -107,7 +129,7 @@ public class WeatherAPICall {
 	}
 	
 	// Returns the amount of rain, if any, at a given index.
-	public String getRain(int index) {
+	public String getRainAtIndex(int index) {
 		String temp = "";
 		try {
 			temp = ((JSONObject)((JSONObject)((JSONArray)json.get("list")).get(index)).get("rain")).get("3h").toString();
@@ -117,10 +139,22 @@ public class WeatherAPICall {
 		return temp;
 	}
 	
-	public String getSnow(int index) {
+	// Returns the amount of snow, if any, at a given index.
+	public String getSnowAtIndex(int index) {
 		String temp = "";
 		try {
 			temp = ((JSONObject)((JSONObject)((JSONArray)json.get("list")).get(index)).get("snow")).get("3h").toString();
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		return temp;
+	}
+	
+	// Returns the air pressure at a given index.
+	public String getPressureAtIndex(int index) {
+		String temp = "";
+		try {
+			temp = ((JSONObject)((JSONObject)((JSONArray)json.get("list")).get(index)).get("main")).get("pressure").toString();
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
