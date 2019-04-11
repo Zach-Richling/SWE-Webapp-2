@@ -116,4 +116,14 @@ public class WeatherAPICall {
 		}
 		return temp;
 	}
+	
+	public String getSnow(int index) {
+		String temp = "";
+		try {
+			temp = ((JSONObject)((JSONObject)((JSONArray)json.get("list")).get(index)).get("snow")).get("3h").toString();
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		return temp;
+	}
 }
