@@ -93,6 +93,20 @@
 		height: 25px;
 		color: white;
 	}
+	#HLCtemp{
+		background-color: blue;
+		background-image: linear-gradient(to bottom right, #99c0ff, #fff38e);
+		width: 90%;
+		height: 100px;
+		margin-left: 5%;
+		margin-right: 5%;
+		margin-top: 20px;
+		padding-top: 10px;
+		padding-left: 20px;
+	}
+	#HLCtemp #currentTemp{
+		
+	}
 	
 </style>
 </head>
@@ -107,7 +121,10 @@
 		</a>
 	</div>
 	<div id="dataContainer" style="padding-left:16px">
-		<table cellspacing="22">
+		<div id="HLCtemp">
+			<h1>Current</h1><br> High/Low<br>
+		</div>
+		<!---<table cellspacing="22">
 		<tr style="text-align:left">
 			<th>Day</th>
 			<th>Description</th>
@@ -124,7 +141,7 @@
 			<td>S 11MPH</td>
 			<td>35%</td>
 		</tr>
-		</table>
+		</table>-->
 	</div>
 		<div id="formContainer">
 			<form action='Compute' method='POST'>
