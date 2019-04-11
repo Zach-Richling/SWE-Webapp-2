@@ -23,7 +23,8 @@ public class Compute extends HttpServlet {
 		*/
 		checkValue = request.getParameter("ZipCode");
 		String htmlServlet = "";
-		htmlServlet = htmlServlet + "<!DOCTYPE html>" +
+		htmlServlet = htmlServlet + 
+		"<!DOCTYPE html>" +
 		"<html>" + 
 		"<head>" +
 		"<meta charset='UTF-8'>" + 
