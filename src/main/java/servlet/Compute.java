@@ -21,7 +21,7 @@ public class Compute extends HttpServlet {
 		}
 		checkValue = cookieArray[0].getValue();
 		*/
-		checkValue = request.getParameter("ZipCode");
+		checkValue = data.getSnow(1);
 		String htmlServlet = "";
 		htmlServlet = htmlServlet + 
 		"<!DOCTYPE html>" +
