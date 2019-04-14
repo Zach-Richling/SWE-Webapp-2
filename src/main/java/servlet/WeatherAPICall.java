@@ -163,6 +163,6 @@ public class WeatherAPICall {
 	public String convertToF(String temp) {
 		double f = Double.parseDouble(temp);
 		f = f * 9 / 5 + 32;
-		String returnvalue = Double.toString(f);
+		return Double.toString(f);
 	}
 }
