@@ -32,7 +32,8 @@ public class Compute extends HttpServlet {
 		"<title>Test Page</title>" +
 		"</head>" + 
 		"<body>" + 
-		"<p> Hello, " + zip + "<p/>" + 
+		"<p> Hello user, </p>" + 
+		"<p> Zipcode: " + zip + "<p/>" + 
 		"</body>" + 
 		"</html>";
 		out.print(htmlServlet);
