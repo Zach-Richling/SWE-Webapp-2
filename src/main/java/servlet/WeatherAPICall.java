@@ -170,6 +170,6 @@ public class WeatherAPICall {
 	public String formatDate(String date) {
 		Pattern p = Pattern.compile("(.*)-(.*)-(.*) (\\d+)");
 		Matcher m = p.matcher(date);
-		return m.group(2)+"/"+m.group(3)+"/"+m.group(1)+"; Time: "m.group(4);
+		return m.group(2)+"/"+m.group(3)+"/"+m.group(1)+"; Time: "+m.group(4);
 	}
 }
