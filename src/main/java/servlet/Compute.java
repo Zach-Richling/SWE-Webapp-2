@@ -11,6 +11,18 @@ public class Compute extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		WeatherAPICall data = new WeatherAPICall(request.getParameter("ZipCode"));
 		String zip = request.getParameter("ZipCode");
+		String date = data.getDateAtIndex(1);
+		String datetext = data.getDateTextAtIndex(1);
+		String temp = data.getTempAtIndex(1);
+		String mintemp = data.getTempMinAtIndex(1);
+		String maxtemp = data.getTempMaxAtIndex(1);
+		String humidity = data.getHumidityAtIndex(1);
+		String description = data.getDescriptionAtIndex(1);
+		String windspeed = data.getWindSpeedAtIndex(1);
+		String rain = data.getRainAtIndex(1);
+		String snow = data.getSnowAtIndex(1);
+		String pressure = data.getPressureAtIndex(1);
+		
 		response.setContentType("text/html");
 		final PrintWriter out = response.getWriter();
 		String checkValue = "didnt get there";
@@ -34,6 +46,17 @@ public class Compute extends HttpServlet {
 		"<body>" + 
 		"<p> Hello user, </p>" + 
 		"<p> Zipcode: " + zip + "<p/>" + 
+		"<p> Date: " + date + "<p/>" +
+		"<p> Date Text: " + datetext + "<p/>" +
+		"<p> Temp: " + temp + "<p/>" +
+		"<p> Min Temp: " + mintemp + "<p/>" +
+		"<p> Max Temp: " + maxtemp + "<p/>" +
+		"<p> Humidity: " + humidity + "<p/>" +
+		"<p> Description: " + description + "<p/>" +
+		"<p> Wind Speed: " + windspeed + "<p/>" +
+		"<p> Rain: " + rain + "<p/>" +
+		"<p> Snow: " + snow + "<p/>" +
+		"<p> Pressure: " + pressure + "<p/>" +
 		"</body>" + 
 		"</html>";
 		out.print(htmlServlet);
