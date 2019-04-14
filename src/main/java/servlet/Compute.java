@@ -8,7 +8,7 @@ import org.apache.commons.lang3.*;
 @WebServlet(name = "Compute", urlPatterns = { "/Compute" })
 public class Compute extends HttpServlet {
 	
-	String date = "";
+	/*String date = "";
 	String datetext = "";
 	String temp = "";
 	String mintemp = "";
@@ -18,7 +18,7 @@ public class Compute extends HttpServlet {
 	String windspeed = "";
 	String rain = "";
 	String snow = "";
-	String pressure = "";
+	String pressure = "";*/
 	
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
