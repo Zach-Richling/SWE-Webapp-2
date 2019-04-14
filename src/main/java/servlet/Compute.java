@@ -82,7 +82,7 @@ public class Compute extends HttpServlet {
 		snow = data.getSnowAtIndex(index);
 		pressure = data.getPressureAtIndex(index);
 		
-		return "<p> Zipcode: " + zip + "<p/>" + 
+		return
 		"<p> Date Text: " + datetext + "<p/>" +
 		"<p> Avg Temp: " + temp + "<p/>" +
 		"<p> Min Temp: " + mintemp + "<p/>" +
