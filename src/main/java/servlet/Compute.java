@@ -50,7 +50,7 @@ public class Compute extends HttpServlet {
 		"<body>" + 
 		"<p> Hello user, </p>" + 
 		"<p> Zipcode: " + zip + "<p/>" + 
-		getDataForFullDay(0,data);
+		getDataForFullDay(0,data) +
 		"</body>" + 
 		"</html>";
 		out.print(htmlServlet);
