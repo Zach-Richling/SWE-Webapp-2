@@ -50,14 +50,7 @@ public class Compute extends HttpServlet {
 		"<body>" + 
 		"<p> Hello user, </p>" + 
 		"<p> Zipcode: " + zip + "<p/>" + 
-		setDataForIndex(1,data) +
-		setDataForIndex(2,data) +
-		setDataForIndex(3,data) +
-		setDataForIndex(4,data) +
-		setDataForIndex(5,data) +
-		setDataForIndex(6,data) +
-		setDataForIndex(7,data) +
-		setDataForIndex(8,data) +
+		getDataForFullDay(0,data);
 		"</body>" + 
 		"</html>";
 		out.print(htmlServlet);
@@ -65,7 +58,7 @@ public class Compute extends HttpServlet {
 		return;
 	} // end doPost method
 	
-	public String getDataForFullDay(int index, WeatherAPICall data) {
+	public String getDataForFullDay(int day, WeatherAPICall data) {
 		return
 		setDataForIndex(1,data)+
 		setDataForIndex(2,data)+
