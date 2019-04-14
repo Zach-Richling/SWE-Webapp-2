@@ -38,6 +38,8 @@ public class Compute extends HttpServlet {
 		*/
 		checkValue = data.getWindSpeedAtIndex(1);
 		String htmlServlet = "";
+		String formated = "";
+		
 		htmlServlet = htmlServlet + 
 		"<!DOCTYPE html>" +
 		"<html>" + 
@@ -49,7 +51,7 @@ public class Compute extends HttpServlet {
 		"<p> Hello user, </p>" + 
 		"<p> Zipcode: " + zip + "<p/>" + 
 		"<p> Date Text: " + datetext + "<p/>" +
-		"<p> Temp: " + temp + "<p/>" +
+		"<p> Avg Temp: " + temp + "<p/>" +
 		"<p> Min Temp: " + mintemp + "<p/>" +
 		"<p> Max Temp: " + maxtemp + "<p/>" +
 		"<p> Humidity: " + humidity + "<p/>" +
@@ -65,7 +67,9 @@ public class Compute extends HttpServlet {
 		return;
 	} // end doPost method
 	
-	public void setDataForIndex(int index, WeatherAPICall data) {
+	public String setDataForIndex(int index, WeatherAPICall data) {
+		
+		//Set class weather data then return the html string
 		date = data.getDateAtIndex(index);
 		datetext = data.getDateTextAtIndex(index);
 		temp = data.getTempAtIndex(index);
@@ -77,6 +81,18 @@ public class Compute extends HttpServlet {
 		rain = data.getRainAtIndex(index);
 		snow = data.getSnowAtIndex(index);
 		pressure = data.getPressureAtIndex(index);
+		
+		return "<p> Zipcode: " + zip + "<p/>" + 
+		"<p> Date Text: " + datetext + "<p/>" +
+		"<p> Avg Temp: " + temp + "<p/>" +
+		"<p> Min Temp: " + mintemp + "<p/>" +
+		"<p> Max Temp: " + maxtemp + "<p/>" +
+		"<p> Humidity: " + humidity + "<p/>" +
+		"<p> Description: " + description + "<p/>" +
+		"<p> Wind Speed: " + windspeed + "<p/>" +
+		"<p> Rain: " + rain + "<p/>" +
+		"<p> Snow: " + snow + "<p/>" +
+		"<p> Pressure: " + pressure + "<p/>";
 	}
 	
 	@Override
