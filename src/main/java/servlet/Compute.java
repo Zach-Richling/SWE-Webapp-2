@@ -50,7 +50,15 @@ public class Compute extends HttpServlet {
 		"<body>" + 
 		"<p> Hello user, </p>" + 
 		"<p> Zipcode: " + zip + "<p/>" + 
+		setDataForIndex(0,data) +
 		setDataForIndex(1,data) +
+		setDataForIndex(2,data) +
+		setDataForIndex(3,data) +
+		setDataForIndex(4,data) +
+		setDataForIndex(5,data) +
+		setDataForIndex(6,data) +
+		setDataForIndex(7,data) +
+		setDataForIndex(8,data) +
 		"</body>" + 
 		"</html>";
 		out.print(htmlServlet);
@@ -60,21 +68,8 @@ public class Compute extends HttpServlet {
 	
 	public String setDataForIndex(int index, WeatherAPICall data) {
 		
-		//Set class weather data then return the html string
-		date = data.getDateAtIndex(index);
-		datetext = data.getDateTextAtIndex(index);
-		temp = data.getTempAtIndex(index);
-		mintemp = data.getTempMinAtIndex(index);
-		maxtemp = data.getTempMaxAtIndex(index);
-		humidity = data.getHumidityAtIndex(index);
-		description = data.getDescriptionAtIndex(index);
-		windspeed = data.getWindSpeedAtIndex(index);
-		rain = data.getRainAtIndex(index);
-		snow = data.getSnowAtIndex(index);
-		pressure = data.getPressureAtIndex(index);
-		
 		return
-		"<p> Date Text: " + data.getDateAtIndex(index) + "<p/>" +
+		"<p> Date Text: " + data.getDateTextAtIndex(index) + "<p/>" +
 		"<p> Avg Temp: " + data.getTempAtIndex(index) + "<p/>" +
 		"<p> Min Temp: " + data.getTempMinAtIndex(index) + "<p/>" +
 		"<p> Max Temp: " + data.getTempMaxAtIndex(index) + "<p/>" +
