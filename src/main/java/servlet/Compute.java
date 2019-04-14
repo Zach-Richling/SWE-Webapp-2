@@ -76,7 +76,7 @@ public class Compute extends HttpServlet {
 	public String getDataForIndex(int index, WeatherAPICall data) {
 		
 		return
-		"<p> Date Text: " + data.getDateTextAtIndex(index) + "<p/>" +
+		"<p> Date & Time: " + data.getDateTextAtIndex(index) + "<p/>" +
 		"<p> Avg Temp: " + data.getTempAtIndex(index) + "<p/>" +
 		"<p> Min Temp: " + data.getTempMinAtIndex(index) + "<p/>" +
 		"<p> Max Temp: " + data.getTempMaxAtIndex(index) + "<p/>" +
