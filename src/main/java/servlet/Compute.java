@@ -50,7 +50,6 @@ public class Compute extends HttpServlet {
 		"<body>" + 
 		"<p> Hello user, </p>" + 
 		"<p> Zipcode: " + zip + "<p/>" + 
-		setDataForIndex(0,data) +
 		setDataForIndex(1,data) +
 		setDataForIndex(2,data) +
 		setDataForIndex(3,data) +

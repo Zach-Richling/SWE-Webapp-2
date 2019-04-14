@@ -181,6 +181,16 @@ public class WeatherAPICall {
 			year = m.group(1);
 			time = m.group(4);
 		}
+		int timeInt = Integer.parseInt(time);
+		if(timeInt == 12){
+			time = "12 pm";
+		} else if(timeInt == 0){
+			time = "12 am";
+		} else if(timeInt > 12) {
+			time = Integer.toString(timeInt % 12) + " pm";
+		} else {
+			time = Integer.toString(timeInt) + " am";
+		}
 		return month+"/"+day+"/"+year+"; Time: "+time;
 	}
 }
