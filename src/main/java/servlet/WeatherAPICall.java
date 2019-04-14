@@ -160,4 +160,9 @@ public class WeatherAPICall {
 		}
 		return temp;
 	}
+	public String convertToF(String temp) {
+		double f = Double.parseDouble(temp);
+		f = f * 9 / 5 + 32;
+		String temp = Double.toString(f);
+	}
 }
