@@ -21,7 +21,7 @@ public class Compute extends HttpServlet {
 		}
 		checkValue = cookieArray[0].getValue();
 		*/
-		checkValue = data.getSnowAtIndex(1);
+		checkValue = data.getWindSpeedAtIndex(1);
 		String htmlServlet = "";
 		htmlServlet = htmlServlet + 
 		"<!DOCTYPE html>" +
