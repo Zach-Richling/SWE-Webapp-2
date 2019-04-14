@@ -171,7 +171,7 @@ public class WeatherAPICall {
 		String toReturn = "";
 		int gnumber = 1;
 		Pattern p = Pattern.compile("(.*)-(.*)-(.*) (\\d+)");
-		Matcher m = p.m(date);
+		Matcher m = p.matcher(date);
 		while(m.find()){
 			toReturn += m.group(gnumber++);
 		}
