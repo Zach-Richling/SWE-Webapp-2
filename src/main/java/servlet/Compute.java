@@ -10,6 +10,7 @@ public class Compute extends HttpServlet {
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		WeatherAPICall data = new WeatherAPICall(request.getParameter("ZipCode"));
+		String zip = request.getParameter("ZipCode");
 		response.setContentType("text/html");
 		final PrintWriter out = response.getWriter();
 		String checkValue = "didnt get there";
@@ -31,7 +32,7 @@ public class Compute extends HttpServlet {
 		"<title>Test Page</title>" +
 		"</head>" + 
 		"<body>" + 
-		"<p> Hello, " + checkValue + "<p/>" + 
+		"<p> Hello, " + zip + "<p/>" + 
 		"</body>" + 
 		"</html>";
 		out.print(htmlServlet);
