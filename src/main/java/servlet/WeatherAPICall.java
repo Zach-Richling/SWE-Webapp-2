@@ -168,13 +168,8 @@ public class WeatherAPICall {
 		return Double.toString(f);
 	}
 	public String formatDate(String date) {
-		String toReturn = "";
-		int gnumber = 1;
 		Pattern p = Pattern.compile("(.*)-(.*)-(.*) (\\d+)");
 		Matcher m = p.matcher(date);
-		while(m.find()){
-			toReturn += m.group(gnumber++);
-		}
-		return toReturn;
+		return m.group(2)+"/"+m.group(3)+"/"+m.group(1)+"; Time: "m.group(4);
 	}
 }
