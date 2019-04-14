@@ -5,6 +5,8 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.json.*;
 
@@ -164,5 +166,15 @@ public class WeatherAPICall {
 		double c = Double.parseDouble(temp);
 		double f = c * (1.8) + 32;
 		return Double.toString(f);
+	}
+	public String formatDate(String date) {
+		String toReturn = "";
+		int gnumber = 1;
+		Pattern p = Pattern.compile("(.*)-(.*)-(.*) (\\d+)");
+		Matcher m = p.m(date);
+		while(m.find()){
+			toReturn += m.group(gnumber++);
+		}
+		return toReturn;
 	}
 }
