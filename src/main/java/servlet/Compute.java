@@ -7,22 +7,23 @@ import org.apache.commons.lang3.*;
 
 @WebServlet(name = "Compute", urlPatterns = { "/Compute" })
 public class Compute extends HttpServlet {
+	
+	String date = "";
+	String datetext = "";
+	String temp = "";
+	String mintemp = "";
+	String maxtemp = "";
+	String humidity = "";
+	String description = "";
+	String windspeed = "";
+	String rain = "";
+	String snow = "";
+	String pressure = "";
+	
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		WeatherAPICall data = new WeatherAPICall(request.getParameter("ZipCode"));
 		String zip = request.getParameter("ZipCode");
-		
-		String date = "";
-		String datetext = "";
-		String temp = "";
-		String mintemp = "";
-		String maxtemp = "";
-		String humidity = "";
-		String description = "";
-		String windspeed = "";
-		String rain = "";
-		String snow = "";
-		String pressure = "";
 		
 		response.setContentType("text/html");
 		final PrintWriter out = response.getWriter();
