@@ -12,17 +12,17 @@ public class Compute extends HttpServlet {
 		WeatherAPICall data = new WeatherAPICall(request.getParameter("ZipCode"));
 		String zip = request.getParameter("ZipCode");
 		
-		String date = data.getDateAtIndex(1);
-		String datetext = data.getDateTextAtIndex(1);
-		String temp = data.getTempAtIndex(1);
-		String mintemp = data.getTempMinAtIndex(1);
-		String maxtemp = data.getTempMaxAtIndex(1);
-		String humidity = data.getHumidityAtIndex(1);
-		String description = data.getDescriptionAtIndex(1);
-		String windspeed = data.getWindSpeedAtIndex(1);
-		String rain = data.getRainAtIndex(1);
-		String snow = data.getSnowAtIndex(1);
-		String pressure = data.getPressureAtIndex(1);
+		String date = "";
+		String datetext = "";
+		String temp = "";
+		String mintemp = "";
+		String maxtemp = "";
+		String humidity = "";
+		String description = "";
+		String windspeed = "";
+		String rain = "";
+		String snow = "";
+		String pressure = "";
 		
 		response.setContentType("text/html");
 		final PrintWriter out = response.getWriter();
@@ -63,7 +63,21 @@ public class Compute extends HttpServlet {
 		out.close();
 		return;
 	} // end doPost method
-
+	
+	public void setDataForIndex(int index) {
+		date = data.getDateAtIndex(index);
+		datetext = data.getDateTextAtIndex(index);
+		temp = data.getTempAtIndex(index);
+		mintemp = data.getTempMinAtIndex(index);
+		maxtemp = data.getTempMaxAtIndex(index);
+		humidity = data.getHumidityAtIndex(index);
+		description = data.getDescriptionAtIndex(index);
+		windspeed = data.getWindSpeedAtIndex(index);
+		rain = data.getRainAtIndex(index);
+		snow = data.getSnowAtIndex(index);
+		pressure = data.getPressureAtIndex(index);
+	}
+	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// HTTP GET requests are forwarded on to the doPost method
