@@ -58,19 +58,22 @@ public class Compute extends HttpServlet {
 		return;
 	} // end doPost method
 	
+	// return html for individual days, 0 indexed
 	public String getDataForFullDay(int day, WeatherAPICall data) {
 		int dayStart = day * 8;
 		return
-		setDataForIndex(dayStart + 1,data)+
-		setDataForIndex(dayStart + 2,data)+
-		setDataForIndex(dayStart + 3,data)+
-		setDataForIndex(dayStart + 4,data)+
-		setDataForIndex(dayStart + 5,data)+
-		setDataForIndex(dayStart + 6,data)+
-		setDataForIndex(dayStart + 7,data)+
-		setDataForIndex(dayStart + 8,data);
+		getDataForIndex(dayStart + 1,data)+
+		getDataForIndex(dayStart + 2,data)+
+		getDataForIndex(dayStart + 3,data)+
+		getDataForIndex(dayStart + 4,data)+
+		getDataForIndex(dayStart + 5,data)+
+		getDataForIndex(dayStart + 6,data)+
+		getDataForIndex(dayStart + 7,data)+
+		getDataForIndex(dayStart + 8,data);
 	}
-	public String setDataForIndex(int index, WeatherAPICall data) {
+	
+	// 
+	public String getDataForIndex(int index, WeatherAPICall data) {
 		
 		return
 		"<p> Date Text: " + data.getDateTextAtIndex(index) + "<p/>" +
