@@ -11,6 +11,7 @@ public class Compute extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		WeatherAPICall data = new WeatherAPICall(request.getParameter("ZipCode"));
 		String zip = request.getParameter("ZipCode");
+		
 		String date = data.getDateAtIndex(1);
 		String datetext = data.getDateTextAtIndex(1);
 		String temp = data.getTempAtIndex(1);
@@ -46,7 +47,6 @@ public class Compute extends HttpServlet {
 		"<body>" + 
 		"<p> Hello user, </p>" + 
 		"<p> Zipcode: " + zip + "<p/>" + 
-		"<p> Date: " + date + "<p/>" +
 		"<p> Date Text: " + datetext + "<p/>" +
 		"<p> Temp: " + temp + "<p/>" +
 		"<p> Min Temp: " + mintemp + "<p/>" +

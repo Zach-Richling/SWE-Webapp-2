@@ -70,7 +70,7 @@ public class WeatherAPICall {
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
-		return convertToF(temp);
+		return temp;
 	}
 	
 	// Returns the minimum temperature for a given index.
@@ -160,9 +160,9 @@ public class WeatherAPICall {
 		}
 		return temp;
 	}
-	public String convertToF(String temp) {
-		double f = Double.parseDouble(temp);
-		f = f * 9 / 5 + 32;
+	public String convertCToF(String temp) {
+		double c = Double.parseDouble(temp);
+		double f = c * (1.8) + 32;
 		return Double.toString(f);
 	}
 }
