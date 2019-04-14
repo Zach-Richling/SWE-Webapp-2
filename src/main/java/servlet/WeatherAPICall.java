@@ -70,7 +70,7 @@ public class WeatherAPICall {
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
-		return temp;
+		return convertToF(temp);
 	}
 	
 	// Returns the minimum temperature for a given index.
