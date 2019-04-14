@@ -64,7 +64,7 @@ public class Compute extends HttpServlet {
 		return;
 	} // end doPost method
 	
-	public void setDataForIndex(int index) {
+	public void setDataForIndex(int index, WeatherAPICall data) {
 		date = data.getDateAtIndex(index);
 		datetext = data.getDateTextAtIndex(index);
 		temp = data.getTempAtIndex(index);
