@@ -83,16 +83,16 @@ public class Compute extends HttpServlet {
 		pressure = data.getPressureAtIndex(index);
 		
 		return
-		"<p> Date Text: " + datetext + "<p/>" +
-		"<p> Avg Temp: " + temp + "<p/>" +
-		"<p> Min Temp: " + mintemp + "<p/>" +
-		"<p> Max Temp: " + maxtemp + "<p/>" +
-		"<p> Humidity: " + humidity + "<p/>" +
-		"<p> Description: " + description + "<p/>" +
-		"<p> Wind Speed: " + windspeed + "<p/>" +
-		"<p> Rain: " + rain + "<p/>" +
-		"<p> Snow: " + snow + "<p/>" +
-		"<p> Pressure: " + pressure + "<p/>";
+		"<p> Date Text: " + data.getDateAtIndex(index) + "<p/>" +
+		"<p> Avg Temp: " + data.getTempAtIndex(index) + "<p/>" +
+		"<p> Min Temp: " + data.getTempMinAtIndex(index) + "<p/>" +
+		"<p> Max Temp: " + data.getTempMaxAtIndex(index) + "<p/>" +
+		"<p> Humidity: " + data.getHumidityAtIndex(index) + "<p/>" +
+		"<p> Description: " + data.getDescriptionAtIndex(index) + "<p/>" +
+		"<p> Wind Speed: " + data.getWindSpeedAtIndex(index) + "<p/>" +
+		"<p> Rain: " + data.getRainAtIndex(index) + "<p/>" +
+		"<p> Snow: " + data.getSnowAtIndex(index) + "<p/>" +
+		"<p> Pressure: " + data.getPressureAtIndex(index) + "<p/>";
 	}
 	
 	@Override
