@@ -40,7 +40,7 @@ public class WeatherAPICall {
 			con.disconnect();
 		}
 	}
-	// Each day has 8 entries in the JSON Object. Each represents a 3 hour span on that day. Day 1 is : 0-7, Day 2 is: 8-16, Etc.
+	// Each day has 8 entries in the JSON Object. Each represents a 3 hour span on that day. Day 1 is : 0-7, Day 2 is: 8-15, Etc.
 	
 	// Returns the date at a certain index in UTC.
 	public String getDateAtIndex(int index) {
