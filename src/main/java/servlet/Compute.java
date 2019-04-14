@@ -50,16 +50,7 @@ public class Compute extends HttpServlet {
 		"<body>" + 
 		"<p> Hello user, </p>" + 
 		"<p> Zipcode: " + zip + "<p/>" + 
-		"<p> Date Text: " + datetext + "<p/>" +
-		"<p> Avg Temp: " + temp + "<p/>" +
-		"<p> Min Temp: " + mintemp + "<p/>" +
-		"<p> Max Temp: " + maxtemp + "<p/>" +
-		"<p> Humidity: " + humidity + "<p/>" +
-		"<p> Description: " + description + "<p/>" +
-		"<p> Wind Speed: " + windspeed + "<p/>" +
-		"<p> Rain: " + rain + "<p/>" +
-		"<p> Snow: " + snow + "<p/>" +
-		"<p> Pressure: " + pressure + "<p/>" +
+		setDataForIndex(1) +
 		"</body>" + 
 		"</html>";
 		out.print(htmlServlet);
