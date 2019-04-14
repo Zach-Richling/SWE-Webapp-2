@@ -61,7 +61,7 @@ public class WeatherAPICall {
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
-		return date;
+		return formatDate(date);
 	}
 	
 	// Returns the average temperature for a day.
