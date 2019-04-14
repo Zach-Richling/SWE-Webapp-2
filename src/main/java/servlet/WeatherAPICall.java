@@ -167,9 +167,20 @@ public class WeatherAPICall {
 		double f = c * (1.8) + 32;
 		return Double.toString(f);
 	}
+	//Needs Work
 	public String formatDate(String date) {
 		Pattern p = Pattern.compile("(.*)-(.*)-(.*) (\\d+)");
 		Matcher m = p.matcher(date);
-		return m.group(2)+"/"+m.group(3)+"/"+m.group(1)+"; Time: "+m.group(4);
+		String month = "";
+		String day = "";
+		String year = "";
+		String time = "";
+		while(m.find()){
+			month = m.group(2);
+			day = m.group(3);
+			year = m.group(1);
+			time = m.group(4);
+		}
+		return month+"/"+day+"/"+year+"; Time: "+time;
 	}
 }
