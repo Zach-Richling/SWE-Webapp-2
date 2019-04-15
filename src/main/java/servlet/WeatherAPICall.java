@@ -138,6 +138,8 @@ public class WeatherAPICall {
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
+		if(temp.equals(""))
+			temp = "None";
 		return temp;
 	}
 	
@@ -149,6 +151,8 @@ public class WeatherAPICall {
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
+		if(temp.equals(""))
+			temp = "None";
 		return temp;
 	}
 	
@@ -162,12 +166,13 @@ public class WeatherAPICall {
 		}
 		return temp;
 	}
+	
 	public String convertCToF(String temp) {
 		double c = Double.parseDouble(temp);
 		double f = c * (1.8) + 32;
 		return Double.toString(f);
 	}
-	//Needs Work
+	
 	public String formatDate(String date) {
 		Pattern p = Pattern.compile("(.*)-(.*)-(.*) (\\d+)");
 		Matcher m = p.matcher(date);
@@ -183,14 +188,32 @@ public class WeatherAPICall {
 		}
 		int timeInt = Integer.parseInt(time);
 		if(timeInt == 12){
-			time = "12 pm";
+			time = "12pm";
 		} else if(timeInt == 0){
-			time = "12 am";
+			time = "12am";
 		} else if(timeInt > 12) {
-			time = Integer.toString(timeInt % 12) + " pm";
+			time = Integer.toString(timeInt % 12) + "pm";
 		} else {
-			time = Integer.toString(timeInt) + " am";
+			time = Integer.toString(timeInt) + "am";
 		}
-		return month+"/"+day+"/"+year+"; Time: "+time;
+		return month+"/"+day+"/"+year+";"+time;
+	}
+	public String date(String temp) {
+		Pattern p = Pattern.compile("(.*);");
+		Matcher m = p.matcher(temp);
+		String date = "";
+		while(m.find()){
+			date = m.group(1);
+		}
+		return date;
+	}
+	public String time(String temp) {
+		Pattern p = Pattern.compile(";(.*)");
+		Matcher m = p.matcher(temp);
+		String time = "";
+		while(m.find()){
+			time = m.group(1);
+		}
+		return time;
 	}
 }
