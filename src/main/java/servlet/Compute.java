@@ -265,7 +265,6 @@ public class Compute extends HttpServlet {
 		
 		int start = 0;
 		String toReturn = "";
-		toReturn += data.getDateTextAtIndex(0);
 		
 		//checks for partial day at beginning of data
 		if(!data.time(data.getDateTextAtIndex(start)).equals("12am")){
@@ -293,6 +292,26 @@ public class Compute extends HttpServlet {
 			toReturn += "<div class=\"periodData\">" + getDataForFullDay(x,data) + "</div>";
 		}
 		//checks for partial day at end of data
+		if(start != 0){
+			toReturn +=
+			"<div class=\"periodData\">" +
+			"<table>"+
+			"<th colspan=\"9\"> Date: " + data.date(data.getDateTextAtIndex(32 + start)) + "</th>" +
+			"<tr><td>Time</td>";
+			if(!(avgtemp == null)){toReturn += "<td>Avg Temp</td>";}
+			if(!(highLow == null)){toReturn += "<td>High/Low</td>";}
+			if(!(humidity == null)){toReturn += "<td>Humidity</td>";}
+			if(!(cloud == null)){toReturn += "<td>Description</td>";}
+			if(!(windSpeed == null)){toReturn += "<td>Wind Speed</td>";}
+			if(!(rain == null)){toReturn += "<td>Rain</td>";}
+			if(!(snow == null)){toReturn += "<td>Snow</td>";}
+			if(!(pressure == null)){toReturn += "<td>Pressure</td>";}
+			toReturn += "</tr>";
+			for(int x = 32 + start; x < 40; x++){
+				toReturn += getDataForIndex(x,data);
+			}
+			toReturn += "</table></div>";
+		}
 		
 		return toReturn;
 	}
@@ -365,8 +384,8 @@ public class Compute extends HttpServlet {
 		
 		return
 		"<tr>"+
-		"<td>" + data.getDateTextAtIndex(index) + "</td>" +
-		//"<td>" + data.time(data.getDateTextAtIndex(index)) + "</td>" +
+		//"<td>" + data.getDateTextAtIndex(index) + "</td>" +
+		"<td>" + data.time(data.getDateTextAtIndex(index)) + "</td>" +
 		toReturn +
 		"</tr>";
 	}
