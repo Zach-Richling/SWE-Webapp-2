@@ -20,7 +20,6 @@ public class Compute extends HttpServlet {
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		WeatherAPICall data = new WeatherAPICall(request.getParameter("ZipCode"));
-		int[] pref = new int[8];
 		String zip = request.getParameter("ZipCode");
 		highLow = request.getParameter("HighLow");
 		cloud = request.getParameter("CloudCover");
@@ -166,12 +165,7 @@ public class Compute extends HttpServlet {
 		"</a>" +
 	"</div>" +
 	"<div id=\"dataContainer\" style=\"padding-left:16px\">" +
-	"	<div class=\"periodData\">" +
-			getDataForFullDay(1,data,pref) +
-	"	</div>" +
-	"	<div class=\"periodData\">" +
-			getDataForFullDay(2,data,pref) +
-	"	</div>" +
+		getDataFor5Day(data) +
 		"</div>" +
 		"<div id=\"formContainer\">" +
 		"	<form action=\"Compute\" method=\"POST\">" +
@@ -222,11 +216,26 @@ public class Compute extends HttpServlet {
 		return;
 	} // end doPost method
 	
+	public String getDataFor5Day(WeatherAPICall data) {
+		
+		String toReturn = "";
+		
+		for(int x = 0; x < 3; x++){
+			toReturn += "<div class=\"periodData\">" + getDataForFullDay(x,data) + "</div>";
+		}
+		
+		return toReturn;
+	}
+	
 	// return html for 24hr period 
 	// Date refers to date on the start of the 24hr period
-	public String getDataForFullDay(int day, WeatherAPICall data, int[] pref) {
+	public String getDataForFullDay(int day, WeatherAPICall data) {
+		
 		int dayStart = day * 8;
 		
+		while(!data.time(data.getDateTextAtIndex(dayStart)).equals("12am"))
+			dayStart++;
+
 		String toReturn = "";
 
 		if(!(avgtemp == null)){toReturn += "<td>Avg Temp</td>";}
@@ -244,21 +253,25 @@ public class Compute extends HttpServlet {
 		"<tr><td>Time</td>"+
 		toReturn +
 		"</tr>"+
-		getDataForIndex(dayStart + 1,data,pref)+
-		getDataForIndex(dayStart + 2,data,pref)+
-		getDataForIndex(dayStart + 3,data,pref)+
-		getDataForIndex(dayStart + 4,data,pref)+
-		getDataForIndex(dayStart + 5,data,pref)+
-		getDataForIndex(dayStart + 6,data,pref)+
-		getDataForIndex(dayStart + 7,data,pref)+
-		getDataForIndex(dayStart + 8,data,pref)+
+		getDataForIndex(dayStart + 1,data)+
+		getDataForIndex(dayStart + 2,data)+
+		getDataForIndex(dayStart + 3,data)+
+		getDataForIndex(dayStart + 4,data)+
+		getDataForIndex(dayStart + 5,data)+
+		getDataForIndex(dayStart + 6,data)+
+		getDataForIndex(dayStart + 7,data)+
+		getDataForIndex(dayStart + 8,data)+
 		"</table>";
 	}
 	
 	// 
-	public String getDataForIndex(int index, WeatherAPICall data, int[] pref) {
+	public String getDataForIndex(int index, WeatherAPICall data) {
+		
 		String toReturn = "";
-
+		if(data.getDescriptionAtIndex(index) == null){
+			toReturn += "N/A";
+			return toReturn;
+		}
 		if(!(avgtemp == null)){
 			toReturn += "<td>" + data.getTempAtIndex(index) + "</td>";
 		}
