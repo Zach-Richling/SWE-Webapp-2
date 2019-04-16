@@ -142,6 +142,34 @@
 		<script>
 		document.getElementById("formContainer").style.display = "none";
 		document.getElementById("dataContainer").style.display = "none";
+		function loadCookies() {
+			var zipCookie = getCookie("zip");
+			var cloudCookie = getCookie("cloud");
+			var pressureCookie = getCookie("pressure");
+			var avgTempCookie = getCookie("avgTemp");
+			var highLowCookie = getCookie("highLow");
+			var windCookie = getCookie("windSpeed");
+			var rainCookie = getCookie("rain");
+			var snowCookie = getCookie("snow");
+			var humidityCookie = getCookie("humidity");
+				
+			if (zipCookie !== "") {
+				document.getElementsByName("ZipCode")[0].value = zipCookie;
+			}
+			if (cloudCookie !== "") {
+				document.getElementsByName("CloudCover")[0].value = cloudCookie;
+			}
+			if (pressureCookie !== "") {
+				document.getElementsByName("Pressure")[0].value = pressureCookie;
+			}
+			if (avgTempCookie !== "") {
+				document.getElementsByName("Avg")[0].value = avgTempCookie;
+			}
+			if (highLowCookie !== "") {
+				document.getElementsByName("HighLow")[0].value = highLowCookie;
+			}
+		}
+		
 		function myFunction() {
 			var x = document.getElementById("topNav");
 			if (x.className === "topnav") {
@@ -160,11 +188,26 @@
 			}
 		}
 		function goHome(){
-
 			if(document.getElementById("formContainer").style.display == "block")
 				toggleDiv("formContainer");
 			if(document.getElementById("dataContainer").style.display == "block")
 				toggleDiv("dataContainer");
+		}
+		
+		function getCookie(cname) {
+			var name = cname + "=";
+			var decodedCookie = decodeURIComponent(document.cookie);
+			var ca = decodedCookie.split(';');
+			for(var i = 0; i <ca.length; i++) {
+				var c = ca[i];
+				while (c.charAt(0) == ' ') {
+				  c = c.substring(1);
+				}
+				if (c.indexOf(name) == 0) {
+				  return c.substring(name.length, c.length);
+				}
+			  }
+			  return "";
 		}
 		</script>
 
