@@ -34,10 +34,12 @@ public class Compute extends HttpServlet {
 		final PrintWriter out = response.getWriter();
 		Cookie[] cookieArray = request.getCookies();
 		// Cookie array is set up as follows: high/low, cloud, pressure, avgtemp, windSpeed, rain, snow, humidity.
+		/*
 		for (Cookie cookie : cookieArray) {
 			cookie.setMaxAge(0);
 			response.addCookie(cookie);
 		}
+		*/
 		if (highLow == null) {
 			response.addCookie(new Cookie("highLow", "false"));
 		} else {
