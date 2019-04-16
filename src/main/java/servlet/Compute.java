@@ -260,13 +260,39 @@ public class Compute extends HttpServlet {
 		return;
 	} // end doPost method
 	
+	
 	public String getDataFor5Day(WeatherAPICall data) {
 		
+		int start = 0;
 		String toReturn = "";
+		toReturn += data.getDateTextAtIndex(0);
 		
-		for(int x = 0; x < 3; x++){
+		//checks for partial day at beginning of data
+		if(!data.time(data.getDateTextAtIndex(start)).equals("12am")){
+			toReturn +=
+			"<div class=\"periodData\">" +
+			"<table>"+
+			"<th colspan=\"9\"> Date: " + data.date(data.getDateTextAtIndex(start)) + "</th>" +
+			"<tr><td>Time</td>";
+			if(!(avgtemp == null)){toReturn += "<td>Avg Temp</td>";}
+			if(!(highLow == null)){toReturn += "<td>High/Low</td>";}
+			if(!(humidity == null)){toReturn += "<td>Humidity</td>";}
+			if(!(cloud == null)){toReturn += "<td>Description</td>";}
+			if(!(windSpeed == null)){toReturn += "<td>Wind Speed</td>";}
+			if(!(rain == null)){toReturn += "<td>Rain</td>";}
+			if(!(snow == null)){toReturn += "<td>Snow</td>";}
+			if(!(pressure == null)){toReturn += "<td>Pressure</td>";}
+			toReturn += "</tr>";
+			while(!data.time(data.getDateTextAtIndex(start)).equals("12am")){
+				toReturn += getDataForIndex(start++,data);
+			}
+			toReturn += "</table></div>";
+		}
+		//4 full days
+		for(int x = 0; x < 4; x++){
 			toReturn += "<div class=\"periodData\">" + getDataForFullDay(x,data) + "</div>";
 		}
+		//checks for partial day at end of data
 		
 		return toReturn;
 	}
@@ -275,12 +301,12 @@ public class Compute extends HttpServlet {
 	// Date refers to date on the start of the 24hr period
 	public String getDataForFullDay(int day, WeatherAPICall data) {
 		
+		String toReturn = "";
 		int dayStart = day * 8;
 		
-		while(!data.time(data.getDateTextAtIndex(dayStart)).equals("12am"))
+		while(!data.time(data.getDateTextAtIndex(dayStart)).equals("12am")){
 			dayStart++;
-
-		String toReturn = "";
+		}
 
 		if(!(avgtemp == null)){toReturn += "<td>Avg Temp</td>";}
 		if(!(highLow == null)){toReturn += "<td>High/Low</td>";}
@@ -297,6 +323,7 @@ public class Compute extends HttpServlet {
 		"<tr><td>Time</td>"+
 		toReturn +
 		"</tr>"+
+		getDataForIndex(dayStart,data)+
 		getDataForIndex(dayStart + 1,data)+
 		getDataForIndex(dayStart + 2,data)+
 		getDataForIndex(dayStart + 3,data)+
@@ -304,18 +331,13 @@ public class Compute extends HttpServlet {
 		getDataForIndex(dayStart + 5,data)+
 		getDataForIndex(dayStart + 6,data)+
 		getDataForIndex(dayStart + 7,data)+
-		getDataForIndex(dayStart + 8,data)+
 		"</table>";
 	}
-	
-	// 
+
 	public String getDataForIndex(int index, WeatherAPICall data) {
 		
 		String toReturn = "";
-		if(data.getDescriptionAtIndex(index) == null){
-			toReturn += "N/A";
-			return toReturn;
-		}
+		
 		if(!(avgtemp == null)){
 			toReturn += "<td>" + data.getTempAtIndex(index) + "</td>";
 		}
@@ -343,7 +365,8 @@ public class Compute extends HttpServlet {
 		
 		return
 		"<tr>"+
-		"<td>" + data.time(data.getDateTextAtIndex(index)) + "</td>" +
+		"<td>" + data.getDateTextAtIndex(index) + "</td>" +
+		//"<td>" + data.time(data.getDateTextAtIndex(index)) + "</td>" +
 		toReturn +
 		"</tr>";
 	}
