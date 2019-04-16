@@ -32,16 +32,53 @@ public class Compute extends HttpServlet {
 		
 		response.setContentType("text/html");
 		final PrintWriter out = response.getWriter();
-		String checkValue = "didnt get there";
-		/* Cookie[] cookieArray = request.getCookies();
-		if (cookieArray == null) {
-			// Add cookies here if the user does not have any
-			response.addCookie(new Cookie("first_name", request.getParameter("First_Name")));
-			checkValue = "got here";
+		Cookie[] cookieArray = request.getCookies();
+		// Cookie array is set up as follows: high/low, cloud, pressure, avgtemp, windSpeed, rain, snow, humidity.
+		for (Cookie cookie : cookieArray) {
+			cookie.setMaxAge(0);
+			response.addCookie(cookie);
 		}
-		checkValue = cookieArray[0].getValue();
-		*/
-		checkValue = data.getWindSpeedAtIndex(1);
+		if (highLow == null) {
+			response.addCookie(new Cookie("highLow", "false"));
+		} else {
+			response.addCookie(new Cookie("highLow", "true"));
+		}
+		if (cloud == null) {
+			response.addCookie(new Cookie("cloud", "false"));
+		} else {
+			response.addCookie(new Cookie("cloud", "true"));
+		}
+		if (pressure == null) {
+			response.addCookie(new Cookie("pressure", "false"));
+		} else {
+			response.addCookie(new Cookie("pressure", "true"));
+		}
+		if (avgtemp == null) {
+			response.addCookie(new Cookie("avgtemp", "false"));
+		} else {
+			response.addCookie(new Cookie("avgtemp", "true"));
+		}
+		if (windSpeed == null) {
+			response.addCookie(new Cookie("windSpeed", "false"));
+		} else {
+			response.addCookie(new Cookie("windSpeed", "true"));
+		}
+		if (rain == null) {
+			response.addCookie(new Cookie("rain", "false"));
+		} else {
+			response.addCookie(new Cookie("rain", "true"));
+		}
+		if (snow == null) {
+			response.addCookie(new Cookie("snow", "false"));
+		} else {
+			response.addCookie(new Cookie("snow", "true"));
+		}
+		if (humidity == null) {
+			response.addCookie(new Cookie("humidity", "false"));
+		} else {
+			response.addCookie(new Cookie("humidity", "false"));
+		}
+		
 		String htmlServlet = "";
 		String formated = "";
 		
