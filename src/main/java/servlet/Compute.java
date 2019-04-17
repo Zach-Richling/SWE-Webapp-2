@@ -83,7 +83,7 @@ public class Compute extends HttpServlet {
 		if (humidity == null) {
 			response.addCookie(new Cookie("humidity", "false"));
 		} else {
-			response.addCookie(new Cookie("humidity", "false"));
+			response.addCookie(new Cookie("humidity", "true"));
 		}
 		
 		String htmlServlet = "";
