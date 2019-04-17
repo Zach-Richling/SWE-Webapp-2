@@ -264,6 +264,7 @@ public class Compute extends HttpServlet {
 	public String getDataFor5Day(WeatherAPICall data) {
 		
 		int start = 0;
+		int noPartial = 0;
 		String toReturn = "";
 		
 		//checks for partial day at beginning of data
@@ -287,8 +288,11 @@ public class Compute extends HttpServlet {
 			}
 			toReturn += "</table></div>";
 		}
+		if(start == 0){
+			noPartial++;
+		}
 		//4 full days
-		for(int x = 0; x < 4; x++){
+		for(int x = 0; x < 4 + noPartial; x++){
 			toReturn += "<div class=\"periodData\">" + getDataForFullDay(x,data) + "</div>";
 		}
 		//checks for partial day at end of data

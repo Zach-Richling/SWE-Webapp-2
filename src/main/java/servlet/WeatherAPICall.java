@@ -156,7 +156,7 @@ public class WeatherAPICall {
 		return temp;
 	}
 	
-	// Returns the air pressure at a given index. Air pressure is given in hPa format. 1013 is average at sea level so to get an accurate percentage we will divide the value in the JSON file by 1013 and multiplying by 100
+	// Returns the air pressure at a given index.
 	public String getPressureAtIndex(int index) {
 		String temp = "";
 		try {
@@ -164,8 +164,6 @@ public class WeatherAPICall {
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
-		double percentage = (Double.parseDouble(temp)/1013) * 100;
-		temp = "" + String.format("%.2f", percentage) + "%";
 		return temp;
 	}
 	
