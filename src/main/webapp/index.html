@@ -113,7 +113,7 @@
 	
 </style>
 </head>
-<body>
+<body onload=loadCookies()>
 
 <div class="topnav" id="topNav">
 		<a class="active" href="index.html" onclick="goHome()"><b>Home</b></a>
@@ -142,11 +142,21 @@
 		<script>
 		document.getElementById("formContainer").style.display = "none";
 		document.getElementById("dataContainer").style.display = "none";
+		
+		function getBoolean(value) {
+			switch(value) {
+				case "true":
+					return true;
+				default:
+					return false;
+			}
+		}
+		
 		function loadCookies() {
 			var zipCookie = getCookie("zip");
 			var cloudCookie = getCookie("cloud");
 			var pressureCookie = getCookie("pressure");
-			var avgTempCookie = getCookie("avgTemp");
+			var avgTempCookie = getCookie("avgtemp");
 			var highLowCookie = getCookie("highLow");
 			var windCookie = getCookie("windSpeed");
 			var rainCookie = getCookie("rain");
@@ -157,16 +167,28 @@
 				document.getElementsByName("ZipCode")[0].value = zipCookie;
 			}
 			if (cloudCookie !== "") {
-				document.getElementsByName("CloudCover")[0].value = cloudCookie;
+				document.getElementsByName("CloudCover")[0].checked = getBoolean(cloudCookie);
 			}
 			if (pressureCookie !== "") {
-				document.getElementsByName("Pressure")[0].value = pressureCookie;
+				document.getElementsByName("Pressure")[0].checked = getBoolean(pressureCookie);
 			}
 			if (avgTempCookie !== "") {
-				document.getElementsByName("Avg")[0].value = avgTempCookie;
+				document.getElementsByName("Avg")[0].checked = getBoolean(avgTempCookie);
 			}
 			if (highLowCookie !== "") {
-				document.getElementsByName("HighLow")[0].value = highLowCookie;
+				document.getElementsByName("HighLow")[0].checked = getBoolean(highLowCookie);
+			}
+			if (windCookie !== "") {
+				document.getElementsByName("WindSpeed")[0].checked = getBoolean(windCookie);
+			}
+			if (rainCookie !== "") {
+				document.getElementsByName("Rain")[0].checked = getBoolean(rainCookie);
+			}
+			if (snowCookie !== "") {
+				document.getElementsByName("Snow")[0].checked = getBoolean(snowCookie);
+			}
+			if (humidityCookie !== "") {
+				document.getElementsByName("Humidity")[0].checked = getBoolean(humidityCookie);
 			}
 		}
 		
