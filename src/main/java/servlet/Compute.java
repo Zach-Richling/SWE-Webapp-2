@@ -254,6 +254,7 @@ public class Compute extends HttpServlet {
 		"		x.className = \"topnav\";" +
 		"	}" +
 		"}" +
+		/*
 		"function toggleDiv(id){" +
 		"	var toHide = document.getElementById(id);" +
 		"	if(toHide.style.display == null || toHide.style.display == \"none\"){" +
@@ -269,6 +270,7 @@ public class Compute extends HttpServlet {
 		"	if(document.getElementById(\"dataContainer\").style.display == \"block\")" +
 		"		toggleDiv(\"dataContainer\");" +
 		"}" +
+		*/
 		"function getBoolean(value) {" +
 			"switch(value) {" +
 				"case \"true\":" +
