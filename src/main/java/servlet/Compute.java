@@ -207,7 +207,7 @@ public class Compute extends HttpServlet {
 		"}" +
 		"</style>" +
 		"</head>" + 
-		"<body>" + 
+		"<body onload=loadCookies()>" + 
 		"<div class=\"topnav\" id=\"topNav\">" +
 		"<a class=\"active\" href=\"index.html\"><b>Home</b></a>" +
 		"<a href=\"javascript:void(0);\" class=\"icon\" onclick=\"myFunction()\">" +
@@ -249,8 +249,10 @@ public class Compute extends HttpServlet {
 		"	</form>" +
 		"</div>" +
 		"<script>" +
+		/*
 		"document.getElementById(\"formContainer\").style.display = \"none\";" +
-		"//document.getElementById(\"dataContainer\").style.display = \"none\";" +
+		"document.getElementById(\"dataContainer\").style.display = \"none\";" +
+		*/
 		"function myFunction() {" +
 		"	var x = document.getElementById(\"topNav\");" +
 		"	if (x.className === \"topnav\") {" +
@@ -273,6 +275,67 @@ public class Compute extends HttpServlet {
 		"		toggleDiv(\"formContainer\");" +
 		"	if(document.getElementById(\"dataContainer\").style.display == \"block\")" +
 		"		toggleDiv(\"dataContainer\");" +
+		"}" +
+		"function getBoolean(value) {" +
+			"switch(value) {" +
+				"case \"true\":" +
+					"return true;" +
+				"default:" +
+					"return false;" +
+			"}" +
+		"}" +
+		"function loadCookies() {" +
+			"var zipCookie = getCookie(\"zip\");" +
+			"var cloudCookie = getCookie(\"cloud\");" +
+			"var pressureCookie = getCookie(\"pressure\");" +
+			"var avgTempCookie = getCookie(\"avgtemp\");" +
+			"var highLowCookie = getCookie(\"highLow\");" +
+			"var windCookie = getCookie(\"windSpeed\");" +
+			"var rainCookie = getCookie(\"rain\");" +
+			"var snowCookie = getCookie(\"snow\");" +
+			"var humidityCookie = getCookie(\"humidity\");" +
+			"if (zipCookie !== \"\") {" +
+				"document.getElementsByName(\"ZipCode\")[1].value = zipCookie;" +
+			"}" +
+			"if (cloudCookie !== \"\") {" +
+				"document.getElementsByName(\"CloudCover\")[1].checked = getBoolean(cloudCookie);" +
+			"}" +
+			"if (pressureCookie !== \"\") {" +
+				"document.getElementsByName(\"Pressure\")[1].checked = getBoolean(pressureCookie);" +
+			"}" +
+			"if (avgTempCookie !== \"\") {" +
+				"document.getElementsByName(\"Avg\")[1].checked = getBoolean(avgTempCookie);" +
+			"}" +
+			"if (highLowCookie !== \"\") {" +
+				"document.getElementsByName(\"HighLow\")[1].checked = getBoolean(highLowCookie);" +
+			"}" +
+			"if (windCookie !== \"\") {" +
+				"document.getElementsByName(\"WindSpeed\")[1].checked = getBoolean(windCookie);" +
+			"}" +
+			"if (rainCookie !== \"\") {" +
+				"document.getElementsByName(\"Rain\")[1].checked = getBoolean(rainCookie);" +
+			"}" +
+			"if (snowCookie !== \"\") {" +
+				"document.getElementsByName(\"Snow\")[1].checked = getBoolean(snowCookie);" +
+			"}" +
+			"if (humidityCookie !== \"\") {" +
+				"document.getElementsByName(\"Humidity\")[1].checked = getBoolean(humidityCookie);" +
+			"}" +
+		"}" +
+		"function getCookie(cname) {" +
+			"var name = cname + \"=\";" +
+			"var decodedCookie = decodeURIComponent(document.cookie);" +
+			"var ca = decodedCookie.split(';');" +
+			"for(var i = 0; i <ca.length; i++) {" +
+				"var c = ca[i];" +
+				"while (c.charAt(0) == ' ') {" +
+				  "c = c.substring(1);" +
+				"}" +
+				"if (c.indexOf(name) == 0) {" +
+				  "return c.substring(name.length, c.length);" +
+				"}" +
+			  "}" +
+			  "return \"\";" +
 		"}" +
 		"</script>" +
 		"</body>" + 
