@@ -105,7 +105,7 @@ public class Compute extends HttpServlet {
 		"	margin: 0;" +
 		"	min-height: 100%;" +
 		"	background-color: #f2f2f2;" +
-		"	background-image: linear-gradient(to bottom right, gray, white);" +
+		"	background-image: linear-gradient(to bottom right, #bfbfbf, white);" +
 		"	font-family: Arial, Helvetica, sans-serif;" +
 		"}" +
 		".topnav {" +
@@ -183,15 +183,17 @@ public class Compute extends HttpServlet {
 		"	height: 100%;" +
 		"	width: 100%;" +
 		"}" +
-		"td {" +
+		"th, td {" +
+		"	color: white;" +
 		"	text-align: center;" +
 		"}" +
 		".periodData{" +
 		"	display: block;" +
 		"	overflow: auto;" +
-		"	background-image: linear-gradient(to bottom right, #99c0ff, #fff38e);" +
-		"	width: 90%;" +
-		"	height: 115px;" +
+		"	text-align: center;" +
+		"	background-image: linear-gradient(to bottom right, #424242, #212121);" +
+		"	width: 65%;" +
+		"	height: auto;" +
 		"	margin: 25px 5%;" +
 		"	border-radius: 15px;" +
 		"}" +
@@ -199,6 +201,9 @@ public class Compute extends HttpServlet {
 		"	padding-top: 1px;" +
 		"	margin-left: 20px;" +
 		"	margin-right: 80%;" +
+		"}" +
+		".periodData table {" +
+		"	margin: 0 auto;" +
 		"}" +
 		"</style>" +
 		"</head>" + 
