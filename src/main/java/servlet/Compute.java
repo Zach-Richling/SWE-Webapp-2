@@ -99,7 +99,7 @@ public class Compute extends HttpServlet {
 		"<title>WeatherForcast</title>" +
 		"<style>" +
 		"html {" +
-		"	height: auto;" +	
+		"	height: 100%;" +	
 		"}" +
 		"body {" +
 		"	margin: 0;" +
@@ -183,14 +183,16 @@ public class Compute extends HttpServlet {
 		"	height: 100%;" +
 		"	width: 100%;" +
 		"}" +
-		"td {" +
+		"th, td {" +
+		"	color: white;" +
 		"	text-align: center;" +
 		"}" +
 		".periodData{" +
 		"	display: block;" +
 		"	overflow: auto;" +
-		"	background-image: linear-gradient(to bottom right, #99c0ff, #fff38e);" +
-		"	width: 90%;" +
+		"	text-align: center;" +
+		"	background-image: linear-gradient(to bottom right, #424242, #212121);" +
+		"	width: 65%;" +
 		"	height: 115px;" +
 		"	margin: 25px 5%;" +
 		"	border-radius: 15px;" +
@@ -199,6 +201,9 @@ public class Compute extends HttpServlet {
 		"	padding-top: 1px;" +
 		"	margin-left: 20px;" +
 		"	margin-right: 80%;" +
+		"}" +
+		".periodData table {" +
+		"	margin: 0 auto;" +
 		"}" +
 		"</style>" +
 		"</head>" + 

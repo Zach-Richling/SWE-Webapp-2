@@ -7,14 +7,14 @@
 	<style>
 	
 	html {
-		height: auto;
+		height: 100%;	
 	}
 	
 	body {
 		margin: 0;
 		min-height: 100%;
 		background-color: #f2f2f2;
-		background-image: linear-gradient(to bottom right, #bfbfbf, white);
+		background-image: linear-gradient(to bottom right, gray, white);
 		font-family: Arial, Helvetica, sans-serif;
 	}
 
@@ -77,7 +77,6 @@
 			text-align: left;
 		}
 	}
-	
 	#formContainer {
 		background-color: white;
 		height: 100%;
@@ -88,20 +87,17 @@
 		padding-left: 10px;
 		padding-top: 20px;
 	}
-	
 	#formContainer .submitPref {
 		background-color: #0066ff;
 		border: none;
 		height: 25px;
 		color: white;
 	}
-	
 	#dataContainer {
 		margin-top = 0;
 		height: 100%;
 		width: 100%;
 	}
-	
 	.periodData{
 		background-image: linear-gradient(to bottom right, #99c0ff, #fff38e);
 		width: 90%;
@@ -109,16 +105,17 @@
 		margin: 25px 5%;
 		border-radius: 15px;
 	}
-	
 	.HighLowCurrent {
 		padding-top: 1px;
 		margin-left: 20px;
 		margin-right: 80%;
 	}
-	
 	#main {
 		margin-left: 5%;
-		color: black;
+	}
+	
+	ol {
+		indent: 5%;
 	}
 	
 </style>
@@ -157,28 +154,23 @@
 	<div id="main">
 	
 		<!-- Purpose -->
-		<h2><u>Weather Forcast!</u><h2>
+		<h2><u>Purpose!</u><h2>
 		<p>
-			This web application displays customized weather information based on your preferences.
-			Following the tutorial below will show you how to pick specific weather information based on your zip code.
-			Each time you visit, your preferences will be saved instead of re-entering each time.
+			The web application displays customized weather information based on your preferences.
+			Following the tutorial below will show you how to pick specific weather information based on the zip code.
+			Each time you visit, your preferences will be saved instead of re-entering your preferences.
 		</p>
 		
 		<!-- Tutorial -->
 		<h2><u>How to Operate!</u><h2>
 			<ol>
-				<li>Click on the preferences tab.</li>
+				<li>Click on the perferences tab.</li>
 				<li>Enter the zipcode and check desired weather data.</li>
-				<li>Click "Update Preferences."</li>
+				<li>Click "Update Perferences."</li>
 			</ol>
 		
 		<!-- About -->
-		<h2><u>Creators!</u><h2>
-			<p>Zach Richling<br>Brian Hart<br>Dylan Snyder<br>Alex Lang</p>
-		
-		<!-- Link -->
-		<h2><u><a href="https://github.com/Snyper0/SWE-Webapp-2">Source Code!</a></u><h2>
-		
+		<h2><u>About the creators!</u><h2>
 	</div>
 	
 	<!-- Form and Data Script -->		
