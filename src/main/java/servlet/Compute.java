@@ -105,7 +105,7 @@ public class Compute extends HttpServlet {
 		"	margin: 0;" +
 		"	min-height: 100%;" +
 		"	background-color: #f2f2f2;" +
-		"	background-image: linear-gradient(to bottom right, gray, white);" +
+		"	background-image: linear-gradient(to bottom right, #bfbfbf, white);" +
 		"	font-family: Arial, Helvetica, sans-serif;" +
 		"}" +
 		".topnav {" +
