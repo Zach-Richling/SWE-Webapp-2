@@ -290,31 +290,31 @@ public class Compute extends HttpServlet {
 			"var humidityCookie = getCookie(\"humidity\");" +
 			"if (zipCookie !== \"\") {" +
 				"alert('in zip cookie');" +
-				"document.getElementsByName(\"ZipCode\")[0].value = zipCookie;" +
+				"document.getElementsByName(\"ZipCode\")[1].value = zipCookie;" +
 			"}" +
 			"if (cloudCookie !== \"\") {" +
-				"document.getElementsByName(\"CloudCover\")[0].checked = getBoolean(cloudCookie);" +
+				"document.getElementsByName(\"CloudCover\")[1].checked = getBoolean(cloudCookie);" +
 			"}" +
 			"if (pressureCookie !== \"\") {" +
-				"document.getElementsByName(\"Pressure\")[0].checked = getBoolean(pressureCookie);" +
+				"document.getElementsByName(\"Pressure\")[1].checked = getBoolean(pressureCookie);" +
 			"}" +
 			"if (avgTempCookie !== \"\") {" +
-				"document.getElementsByName(\"Avg\")[0].checked = getBoolean(avgTempCookie);" +
+				"document.getElementsByName(\"Avg\")[1].checked = getBoolean(avgTempCookie);" +
 			"}" +
 			"if (highLowCookie !== \"\") {" +
-				"document.getElementsByName(\"HighLow\")[0].checked = getBoolean(highLowCookie);" +
+				"document.getElementsByName(\"HighLow\")[1].checked = getBoolean(highLowCookie);" +
 			"}" +
 			"if (windCookie !== \"\") {" +
-				"document.getElementsByName(\"WindSpeed\")[0].checked = getBoolean(windCookie);" +
+				"document.getElementsByName(\"WindSpeed\")[1].checked = getBoolean(windCookie);" +
 			"}" +
 			"if (rainCookie !== \"\") {" +
-				"document.getElementsByName(\"Rain\")[0].checked = getBoolean(rainCookie);" +
+				"document.getElementsByName(\"Rain\")[1].checked = getBoolean(rainCookie);" +
 			"}" +
 			"if (snowCookie !== \"\") {" +
-				"document.getElementsByName(\"Snow\")[0].checked = getBoolean(snowCookie);" +
+				"document.getElementsByName(\"Snow\")[1].checked = getBoolean(snowCookie);" +
 			"}" +
 			"if (humidityCookie !== \"\") {" +
-				"document.getElementsByName(\"Humidity\")[0].checked = getBoolean(humidityCookie);" +
+				"document.getElementsByName(\"Humidity\")[1].checked = getBoolean(humidityCookie);" +
 			"}" +
 		"}" +
 		"function getCookie(cname) {" +
