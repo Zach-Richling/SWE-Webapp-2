@@ -193,7 +193,7 @@ public class Compute extends HttpServlet {
 		"	text-align: center;" +
 		"	background-image: linear-gradient(to bottom right, #424242, #212121);" +
 		"	width: 65%;" +
-		"	height: 115px;" +
+		"	height: auto;" +
 		"	margin: 25px 5%;" +
 		"	border-radius: 15px;" +
 		"}" +
