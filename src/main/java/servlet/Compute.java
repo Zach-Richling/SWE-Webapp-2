@@ -212,6 +212,23 @@ public class Compute extends HttpServlet {
 	"<div id=\"dataContainer\" style=\"padding-left:16px\">" +
 		getCurrentData(currentData) +
 		"</div>" +
+		"<div id=\"formContainer\">" +
+		"	<form action=\"Compute\" method=\"POST\">" +
+		"		<input type=\"Numeric\" name=\"ZipCode\" placeholder=\"Enter zipcode...\" maxlength=\"5\" required><br><br>" +
+		"		<input type=\"checkbox\" name=\"CloudCover\" value=\"cloud\">Cloud Coverage</br>" +
+		"		<input type=\"checkbox\" name=\"Pressure\" value=\"pressure\">Pressure</br>" +
+		"		<input type=\"checkbox\" name=\"Avg\" value=\"avg\">Average Temperature</br>" +
+		"		<input type=\"checkbox\" name=\"HighLow\" value=\"highlow\">High/Low</br>" +
+		"		<input type=\"checkbox\" name=\"WindSpeed\" value=\"windspeed\">Wind Speed</br>" +
+		"		<input type=\"checkbox\" name=\"Rain\" value=\"rain\">Rain</br>" +
+		"		<input type=\"checkbox\" name=\"Snow\" value=\"snow\">Snow</br>" +
+		"		<input type=\"checkbox\" name=\"Humidity\" value=\"humidity\">Humidity</br>" +
+		"		<br><input type=\"submit\" class='submitPref' value=\"Update Preferences\">" +
+		"	</form>" +
+		"</div>" +
+	"<div id=\"dataContainer\" style=\"padding-left:16px\">" +
+		getDataFor5Day(data) +
+		"</div>" +
 		/*
 		"<div id=\"formContainer\">" +
 		"	<form action=\"Compute\" method=\"POST\">" +
@@ -228,23 +245,6 @@ public class Compute extends HttpServlet {
 		"	</form>" +
 		"</div>" +
 		*/
-	"<div id=\"dataContainer\" style=\"padding-left:16px\">" +
-		getDataFor5Day(data) +
-		"</div>" +
-		"<div id=\"formContainer\">" +
-		"	<form action=\"Compute\" method=\"POST\">" +
-		"		<input type=\"Numeric\" name=\"ZipCode\" placeholder=\"Enter zipcode...\" maxlength=\"5\" required><br><br>" +
-		"		<input type=\"checkbox\" name=\"CloudCover\" value=\"cloud\">Cloud Coverage</br>" +
-		"		<input type=\"checkbox\" name=\"Pressure\" value=\"pressure\">Pressure</br>" +
-		"		<input type=\"checkbox\" name=\"Avg\" value=\"avg\">Average Temperature</br>" +
-		"		<input type=\"checkbox\" name=\"HighLow\" value=\"highlow\">High/Low</br>" +
-		"		<input type=\"checkbox\" name=\"WindSpeed\" value=\"windspeed\">Wind Speed</br>" +
-		"		<input type=\"checkbox\" name=\"Rain\" value=\"rain\">Rain</br>" +
-		"		<input type=\"checkbox\" name=\"Snow\" value=\"snow\">Snow</br>" +
-		"		<input type=\"checkbox\" name=\"Humidity\" value=\"humidity\">Humidity</br>" +
-		"		<br><input type=\"submit\" class='submitPref' value=\"Update Preferences\">" +
-		"	</form>" +
-		"</div>" +
 		"<script>" +
 		"document.getElementById(\"formContainer\").style.display = \"none\";" +
 		"document.getElementById(\"dataContainer\").style.display = \"none\";" +
