@@ -209,8 +209,7 @@ public class Compute extends HttpServlet {
 		"	<i class=\"fa fa-bars\"></i>" +
 		"</a>" +
 	"</div>" +
-	"<div id=\"dataContainer\" style=\"padding-left:16px\">" +
-		getCurrentData(currentData) +
+	/*"<div id=\"dataContainer\" style=\"padding-left:16px\">" +
 		"</div>" +
 		"<div id=\"formContainer\">" +
 		"	<form action=\"Compute\" method=\"POST\">" +
@@ -225,8 +224,9 @@ public class Compute extends HttpServlet {
 		"		<input type=\"checkbox\" name=\"Humidity\" value=\"humidity\">Humidity</br>" +
 		"		<br><input type=\"submit\" class='submitPref' value=\"Update Preferences\">" +
 		"	</form>" +
-		"</div>" +
+		"</div>" */+
 	"<div id=\"dataContainer\" style=\"padding-left:16px\">" +
+		getCurrentData(currentData) +
 		getDataFor5Day(data) +
 		"</div>" +
 		"<div id=\"formContainer\">" +
@@ -278,7 +278,6 @@ public class Compute extends HttpServlet {
 			"}" +
 		"}" +
 		"function loadCookies() {" +
-			"alert('got here');" +
 			"var zipCookie = getCookie(\"zip\");" +
 			"var cloudCookie = getCookie(\"cloud\");" +
 			"var pressureCookie = getCookie(\"pressure\");" +
@@ -289,7 +288,6 @@ public class Compute extends HttpServlet {
 			"var snowCookie = getCookie(\"snow\");" +
 			"var humidityCookie = getCookie(\"humidity\");" +
 			"if (zipCookie !== \"\") {" +
-				"alert('in zip cookie');" +
 				"document.getElementsByName(\"ZipCode\")[1].value = zipCookie;" +
 			"}" +
 			"if (cloudCookie !== \"\") {" +
