@@ -212,6 +212,7 @@ public class Compute extends HttpServlet {
 	"<div id=\"dataContainer\" style=\"padding-left:16px\">" +
 		getCurrentData(currentData) +
 		"</div>" +
+		/*
 		"<div id=\"formContainer\">" +
 		"	<form action=\"Compute\" method=\"POST\">" +
 		"		<input type=\"Numeric\" name=\"ZipCode\" placeholder=\"Enter zipcode...\" maxlength=\"5\" required><br><br>" +
@@ -226,6 +227,7 @@ public class Compute extends HttpServlet {
 		"		<br><input type=\"submit\" class='submitPref' value=\"Update Preferences\">" +
 		"	</form>" +
 		"</div>" +
+		*/
 	"<div id=\"dataContainer\" style=\"padding-left:16px\">" +
 		getDataFor5Day(data) +
 		"</div>" +
