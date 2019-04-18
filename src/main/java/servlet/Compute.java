@@ -245,7 +245,7 @@ public class Compute extends HttpServlet {
 		"</div>" +
 		"<script>" +
 		"document.getElementById(\"formContainer\").style.display = \"none\";" +
-		"//document.getElementById(\"dataContainer\").style.display = \"none\";" +
+		"document.getElementById(\"dataContainer\").style.display = \"none\";" +
 		"function myFunction() {" +
 		"	var x = document.getElementById(\"topNav\");" +
 		"	if (x.className === \"topnav\") {" +
