@@ -286,7 +286,7 @@ public class Compute extends HttpServlet {
 			"var windCookie = getCookie('windSpeed');" +
 			"var rainCookie = getCookie('rain');" +
 			"var snowCookie = getCookie('snow');" +
-			"var humidityCookie = getCookie('humidity');"
+			"var humidityCookie = getCookie('humidity');" +
 			"if (zipCookie !== '') {" +
 				"document.getElementsByName('ZipCode')[0].value = zipCookie;" +
 			"}" +
