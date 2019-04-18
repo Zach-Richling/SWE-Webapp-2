@@ -42,49 +42,85 @@ public class Compute extends HttpServlet {
 		}
 		*/
 		if (zip == null) {
-			response.addCookie(new Cookie("zip", "invalid"));
+			Cookie cookie = new Cookie("zip", "invalid");
+			cookie.setMaxAge(604800);
+			response.addCookie(cookie);
 		} else {
-			response.addCookie(new Cookie("zip", zip));
+			Cookie cookie = new Cookie("zip", zip);
+			cookie.setMaxAge(604800);
+			response.addCookie(cookie);
 		}
 		if (highLow == null) {
-			response.addCookie(new Cookie("highLow", "false"));
+			Cookie cookie = new Cookie("highLow", "false");
+			cookie.setMaxAge(604800);
+			response.addCookie(cookie);
 		} else {
-			response.addCookie(new Cookie("highLow", "true"));
+			Cookie cookie = new Cookie("highLow", "true");
+			cookie.setMaxAge(604800);
+			response.addCookie(cookie);
 		}
 		if (cloud == null) {
-			response.addCookie(new Cookie("cloud", "false"));
+			Cookie cookie = new Cookie("cloud", "false");
+			cookie.setMaxAge(604800);
+			response.addCookie(cookie);
 		} else {
-			response.addCookie(new Cookie("cloud", "true"));
+			Cookie cookie = new Cookie("cloud", "true");
+			cookie.setMaxAge(604800);
+			response.addCookie(cookie);
 		}
 		if (pressure == null) {
-			response.addCookie(new Cookie("pressure", "false"));
+			Cookie cookie = new Cookie("pressure", "false");
+			cookie.setMaxAge(604800);
+			response.addCookie(cookie);
 		} else {
-			response.addCookie(new Cookie("pressure", "true"));
+			Cookie cookie = new Cookie("pressure", "true");
+			cookie.setMaxAge(604800);
+			response.addCookie(cookie);
 		}
 		if (avgtemp == null) {
-			response.addCookie(new Cookie("avgtemp", "false"));
+			Cookie cookie = new Cookie("avgtemp", "false");
+			cookie.setMaxAge(604800);
+			response.addCookie(cookie);
 		} else {
-			response.addCookie(new Cookie("avgtemp", "true"));
+			Cookie cookie = new Cookie("avgtemp", "true");
+			cookie.setMaxAge(604800);
+			response.addCookie(cookie);
 		}
 		if (windSpeed == null) {
-			response.addCookie(new Cookie("windSpeed", "false"));
+			Cookie cookie = new Cookie("windSpeed", "false");
+			cookie.setMaxAge(604800);
+			response.addCookie(cookie);
 		} else {
-			response.addCookie(new Cookie("windSpeed", "true"));
+			Cookie cookie = new Cookie("windSpeed", "true");
+			cookie.setMaxAge(604800);
+			response.addCookie(cookie);
 		}
 		if (rain == null) {
-			response.addCookie(new Cookie("rain", "false"));
+			Cookie cookie = new Cookie("rain", "false");
+			cookie.setMaxAge(604800);
+			response.addCookie(cookie);
 		} else {
-			response.addCookie(new Cookie("rain", "true"));
+			Cookie cookie = new Cookie("rain", "true");
+			cookie.setMaxAge(604800);
+			response.addCookie(cookie);
 		}
 		if (snow == null) {
-			response.addCookie(new Cookie("snow", "false"));
+			Cookie cookie = new Cookie("snow", "false");
+			cookie.setMaxAge(604800);
+			response.addCookie(cookie);
 		} else {
-			response.addCookie(new Cookie("snow", "true"));
+			Cookie cookie = new Cookie("snow", "true");
+			cookie.setMaxAge(604800);
+			response.addCookie(cookie);
 		}
 		if (humidity == null) {
-			response.addCookie(new Cookie("humidity", "false"));
+			Cookie cookie = new Cookie("humidity", "false");
+			cookie.setMaxAge(604800);
+			response.addCookie(cookie);
 		} else {
-			response.addCookie(new Cookie("humidity", "true"));
+			Cookie cookie = new Cookie("humidity", "true");
+			cookie.setMaxAge(604800);
+			response.addCookie(cookie);
 		}
 		
 		String htmlServlet = "";
