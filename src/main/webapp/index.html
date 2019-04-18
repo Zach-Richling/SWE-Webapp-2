@@ -110,12 +110,20 @@
 		margin-left: 20px;
 		margin-right: 80%;
 	}
+	#main {
+		margin-left: 5%;
+	}
+	
+	ol {
+		indent: 5%;
+	}
 	
 </style>
 </head>
 <body onload=loadCookies()>
 
-<div class="topnav" id="topNav">
+	<!-- Top Navigation -->
+	<div class="topnav" id="topNav">
 		<a class="active" href="index.html" onclick="goHome()"><b>Home</b></a>
 		<a href="#pref" onclick="toggleDiv('formContainer')"><b>Preferences</b></a>
 		<a href="#weatherdata"  action=\"Compute\" method=\"POST\"><b>Weather Data</b></a>
@@ -123,6 +131,8 @@
 			<i class="fa fa-bars"></i>
 		</a>
 	</div>
+	
+	<!-- Data Container -->
 	<div id="dataContainer" style="padding-left:16px"></div>
 		<div id="formContainer">
 			<form action='Compute' method='POST'>
@@ -139,7 +149,32 @@
 				
 			</form>
 		</div>
-		<script>
+		
+	<!-- Main Content -->
+	<div id="main">
+	
+		<!-- Purpose -->
+		<h2><u>Purpose!</u><h2>
+		<p>
+			The web application displays customized weather information based on your preferences.
+			Following the tutorial below will show you how to pick specific weather information based on the zip code.
+			Each time you visit, your preferences will be saved instead of re-entering your preferences.
+		</p>
+		
+		<!-- Tutorial -->
+		<h2><u>How to Operate!</u><h2>
+			<ol>
+				<li>Click on the perferences tab.</li>
+				<li>Enter the zipcode and check desired weather data.</li>
+				<li>Click "Update Perferences."</li>
+			</ol>
+		
+		<!-- About -->
+		<h2><u>About the creators!</u><h2>
+	</div>
+	
+	<!-- Form and Data Script -->		
+	<script>
 		document.getElementById("formContainer").style.display = "none";
 		document.getElementById("dataContainer").style.display = "none";
 		
@@ -231,7 +266,6 @@
 			  }
 			  return "";
 		}
-		</script>
-
+	</script>
 </body>
 </html>
