@@ -19,7 +19,8 @@ public class Compute extends HttpServlet {
 		
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		WeatherAPICall data = new WeatherAPICall(request.getParameter("ZipCode"));
+		WeatherAPICall currentData = new WeatherAPICall(request.getParameter("ZipCode"), 1);
+		WeatherAPICall data = new WeatherAPICall(request.getParameter("ZipCode"), 0);
 		String zip = request.getParameter("ZipCode");
 		highLow = request.getParameter("HighLow");
 		cloud = request.getParameter("CloudCover");
@@ -209,6 +210,23 @@ public class Compute extends HttpServlet {
 		"</a>" +
 	"</div>" +
 	"<div id=\"dataContainer\" style=\"padding-left:16px\">" +
+		getCurrentData(currentData) +
+		"</div>" +
+		"<div id=\"formContainer\">" +
+		"	<form action=\"Compute\" method=\"POST\">" +
+		"		<input type=\"Numeric\" name=\"ZipCode\" placeholder=\"Enter zipcode...\" maxlength=\"5\" required><br><br>" +
+		"		<input type=\"checkbox\" name=\"CloudCover\" value=\"cloud\">Cloud Coverage</br>" +
+		"		<input type=\"checkbox\" name=\"Pressure\" value=\"pressure\">Pressure</br>" +
+		"		<input type=\"checkbox\" name=\"Avg\" value=\"avg\">Average Temperature</br>" +
+		"		<input type=\"checkbox\" name=\"HighLow\" value=\"highlow\">High/Low</br>" +
+		"		<input type=\"checkbox\" name=\"WindSpeed\" value=\"windspeed\">Wind Speed</br>" +
+		"		<input type=\"checkbox\" name=\"Rain\" value=\"rain\">Rain</br>" +
+		"		<input type=\"checkbox\" name=\"Snow\" value=\"snow\">Snow</br>" +
+		"		<input type=\"checkbox\" name=\"Humidity\" value=\"humidity\">Humidity</br>" +
+		"		<br><input type=\"submit\" class='submitPref' value=\"Update Preferences\">" +
+		"	</form>" +
+		"</div>" +
+	"<div id=\"dataContainer\" style=\"padding-left:16px\">" +
 		getDataFor5Day(data) +
 		"</div>" +
 		"<div id=\"formContainer\">" +
@@ -385,13 +403,73 @@ public class Compute extends HttpServlet {
 		if(!(pressure == null)){
 			toReturn += "<td>" + data.getPressureAtIndex(index) + "</td>";
 		}
-		
+		if( index == -1 )
+		{
+			return
+			"<tr>"+
+			//"<td>" + data.getDateTextAtIndex(index) + "</td>" +
+			"<td>Current</td>" +
+			toReturn +
+			"</tr>";
+			
+		}
 		return
 		"<tr>"+
 		//"<td>" + data.getDateTextAtIndex(index) + "</td>" +
 		"<td>" + data.time(data.getDateTextAtIndex(index)) + "</td>" +
 		toReturn +
 		"</tr>";
+	}
+	//Gets data for current weather
+	public String getCurrentData(WeatherAPICall data) {
+		String toReturn = "";
+		
+	
+			toReturn +=
+			"<div class=\"periodData\">" +
+			"<table>"+
+			"<th colspan=\"9\"> Current </th>" +
+			"<tr><td>Time</td>";
+			if(!(avgtemp == null)){toReturn += "<td>Avg Temp</td>";}
+			if(!(highLow == null)){toReturn += "<td>High/Low</td>";}
+			if(!(humidity == null)){toReturn += "<td>Humidity</td>";}
+			if(!(cloud == null)){toReturn += "<td>Description</td>";}
+			if(!(windSpeed == null)){toReturn += "<td>Wind Speed</td>";}
+			if(!(rain == null)){toReturn += "<td>Rain</td>";}
+			if(!(snow == null)){toReturn += "<td>Snow</td>";}
+			if(!(pressure == null)){toReturn += "<td>Pressure</td>";}
+			toReturn += "</tr>";
+			
+			toReturn += getDataForIndex(-1,data);
+			/*
+			if(!(avgtemp == null)){
+				toReturn += "<td>" + data.getTempAtIndex(-1) + "</td>";
+			}
+			if(!(highLow == null)){
+				toReturn += "<td>" + data.getTempMaxAtIndex(-1) + "/" + data.getTempMinAtIndex(0) + "</td>";
+			}
+			if(!(humidity == null)){
+				toReturn += "<td>" + data.getHumidityAtIndex(-1) + "</td>";
+			}
+			if(!(cloud == null)){
+				toReturn += "<td>" + data.getDescriptionAtIndex(-1) + "</td>";
+			}
+			if(!(windSpeed == null)){
+				toReturn += "<td>" + data.getWindSpeedAtIndex(-1) + "</td>";
+			}
+			if(!(rain == null)){
+				toReturn += "<td>" + data.getRainAtIndex(-1) + "</td>";
+			}
+			if(!(snow == null)){
+				toReturn += "<td>" + data.getSnowAtIndex(-1) + "</td>";
+			}
+			if(!(pressure == null)){
+				toReturn += "<td>" + data.getPressureAtIndex(-1) + "</td>";
+			}
+			*/
+			toReturn += "</table></div>";
+		
+		return toReturn;
 	}
 	
 	@Override

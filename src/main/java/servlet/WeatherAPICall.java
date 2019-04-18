@@ -15,9 +15,18 @@ public class WeatherAPICall {
 	private static HttpURLConnection con;
 	public JSONObject json;
 	
-	public WeatherAPICall(String zipcode) throws MalformedURLException, ProtocolException, IOException {
-		String url = "http://api.openweathermap.org/data/2.5/forecast?zip=" + zipcode
-				+ ",us&appid=8080d1949b56c215e309570924559b1e&units=imperial";
+	public WeatherAPICall(String zipcode, int check) throws MalformedURLException, ProtocolException, IOException {
+		String url = "http://api.openweathermap.org/data/2.5/forecast?zip=" +
+		zipcode + ",us&appid=8080d1949b56c215e309570924559b1e&units=imperial";
+		
+		
+		if( check == 1 )
+		{
+			url = "http://api.openweathermap.org/data/2.5/weather?zip=" +
+			zipcode + ",us&appid=8080d1949b56c215e309570924559b1e&units=imperial";
+		}
+		
+			
 		try {
 			URL myurl = new URL(url);
 			con = (HttpURLConnection) myurl.openConnection();
@@ -72,6 +81,15 @@ public class WeatherAPICall {
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
+		if( index == -1 )
+		{
+			try {
+			temp = ((JSONObject)json.get("main")).get("temp").toString();
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+			
+		}
 		return temp;
 	}
 	
@@ -82,6 +100,14 @@ public class WeatherAPICall {
 			temp = ((JSONObject)((JSONObject)((JSONArray)json.get("list")).get(index)).get("main")).get("temp_min").toString();
 		} catch (JSONException e) {
 			e.printStackTrace();
+		}
+		if( index == -1 )
+		{
+			try {
+			temp = ((JSONObject)json.get("main")).get("temp_min").toString();
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
 		}
 		return temp;
 	}
@@ -94,6 +120,14 @@ public class WeatherAPICall {
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
+		if( index == -1 )
+		{
+			try {
+			temp = ((JSONObject)json.get("main")).get("temp_max").toString();
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+		}
 		return temp;
 	}
 	
@@ -104,6 +138,14 @@ public class WeatherAPICall {
 			temp = ((JSONObject)((JSONObject)((JSONArray)json.get("list")).get(index)).get("main")).get("humidity").toString();
 		} catch (JSONException e) {
 			e.printStackTrace();
+		}
+		if( index == -1 )
+		{
+			try {
+			temp = ((JSONObject)json.get("main")).get("humidity").toString();
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
 		}
 		return temp;
 	}
@@ -116,6 +158,14 @@ public class WeatherAPICall {
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
+		if( index == -1 )
+		{
+			try {
+			temp = ((JSONObject)((JSONArray)json.get("weather")).get(0)).get("description").toString();
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+		}
 		return temp;
 	}
 	
@@ -127,6 +177,14 @@ public class WeatherAPICall {
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
+		if( index == -1 )
+		{
+			try {
+			temp = ((JSONObject)json.get("wind")).get("speed").toString();
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+		}
 		return temp;
 	}
 	
@@ -137,6 +195,14 @@ public class WeatherAPICall {
 			temp = ((JSONObject)((JSONObject)((JSONArray)json.get("list")).get(index)).get("rain")).get("3h").toString();
 		} catch (JSONException e) {
 			e.printStackTrace();
+		}
+		if( index == -1 )
+		{
+			try {
+			temp = ((JSONObject)json.get("rain")).get("3h").toString();
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
 		}
 		if(temp.equals(""))
 			temp = "None";
@@ -151,6 +217,14 @@ public class WeatherAPICall {
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
+		if( index == -1 )
+		{
+			try {
+			temp = ((JSONObject)json.get("snow")).get("3h").toString();
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+		}
 		if(temp.equals(""))
 			temp = "None";
 		return temp;
@@ -164,6 +238,16 @@ public class WeatherAPICall {
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
+		if( index == -1 )
+		{
+			try {
+			temp = ((JSONObject)json.get("main")).get("pressure").toString();
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+		}
+		double percentage = (Double.parseDouble(temp)/1013) * 100;
+		temp = "" + String.format("%.2f", percentage) + "%";
 		return temp;
 	}
 	
