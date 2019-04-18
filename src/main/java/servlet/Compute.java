@@ -224,7 +224,7 @@ public class Compute extends HttpServlet {
 		"		<input type=\"checkbox\" name=\"Humidity\" value=\"humidity\">Humidity</br>" +
 		"		<br><input type=\"submit\" class='submitPref' value=\"Update Preferences\">" +
 		"	</form>" +
-		"</div>" */+
+		"</div>" +*/
 	"<div id=\"dataContainer\" style=\"padding-left:16px\">" +
 		getCurrentData(currentData) +
 		getDataFor5Day(data) +
