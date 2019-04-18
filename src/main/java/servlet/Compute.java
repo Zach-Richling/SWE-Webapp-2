@@ -278,6 +278,7 @@ public class Compute extends HttpServlet {
 			"}" +
 		"}" +
 		"function loadCookies() {" +
+			"alert('got here');" +
 			"var zipCookie = getCookie('zip');" +
 			"var cloudCookie = getCookie('cloud');" +
 			"var pressureCookie = getCookie('pressure');" +
