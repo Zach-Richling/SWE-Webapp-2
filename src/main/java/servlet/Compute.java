@@ -229,7 +229,6 @@ public class Compute extends HttpServlet {
 	"<div id=\"dataContainer\" style=\"padding-left:16px\">" +
 		getDataFor5Day(data) +
 		"</div>" +
-		/*
 		"<div id=\"formContainer\">" +
 		"	<form action=\"Compute\" method=\"POST\">" +
 		"		<input type=\"Numeric\" name=\"ZipCode\" placeholder=\"Enter zipcode...\" maxlength=\"5\" required><br><br>" +
@@ -244,7 +243,6 @@ public class Compute extends HttpServlet {
 		"		<br><input type=\"submit\" class='submitPref' value=\"Update Preferences\">" +
 		"	</form>" +
 		"</div>" +
-		*/
 		"<script>" +
 		"document.getElementById(\"formContainer\").style.display = \"none\";" +
 		"document.getElementById(\"dataContainer\").style.display = \"none\";" +
@@ -291,6 +289,7 @@ public class Compute extends HttpServlet {
 			"var snowCookie = getCookie(\"snow\");" +
 			"var humidityCookie = getCookie(\"humidity\");" +
 			"if (zipCookie !== \"\") {" +
+				"alert('in zip cookie');" +
 				"document.getElementsByName(\"ZipCode\")[0].value = zipCookie;" +
 			"}" +
 			"if (cloudCookie !== \"\") {" +
