@@ -48,7 +48,7 @@ public class WeatherAPICall {
 			con.disconnect();
 		}
 		
-		if (json.get(cod) == "404") {
+		if (json.get("cod") == "404") {
 			isValid = false;
 		} else {
 			isValid = true;
