@@ -38,7 +38,7 @@ public class WeatherAPICall {
 					content.append(System.lineSeparator());
 				}
 			} catch (Exception e) {
-				
+				isValid = false;
 			}
 			try {
 				json = new JSONObject(content.toString());
@@ -47,15 +47,6 @@ public class WeatherAPICall {
 			}
 		} finally {
 			con.disconnect();
-		}
-		try{
-			if (json.get("cod") == "404") {
-				isValid = false;
-			} else {
-				isValid = true;
-			}
-		} catch(JSONException e) {
-			e.printStackTrace();
 		}
 	}
 	// Each day has 8 entries in the JSON Object. Each represents a 3 hour span on that day. Day 1 is : 0-7, Day 2 is: 8-15, Etc.
