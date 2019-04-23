@@ -13,13 +13,12 @@ import org.json.*;
 public class WeatherAPICall {
 
 	private static HttpURLConnection con;
+	public isValid;
 	public JSONObject json;
 	
 	public WeatherAPICall(String zipcode, int check) throws MalformedURLException, ProtocolException, IOException {
 		String url = "http://api.openweathermap.org/data/2.5/forecast?zip=" +
 		zipcode + ",us&appid=8080d1949b56c215e309570924559b1e&units=imperial";
-		
-		
 		if( check == 1 )
 		{
 			url = "http://api.openweathermap.org/data/2.5/weather?zip=" +
@@ -47,6 +46,12 @@ public class WeatherAPICall {
 			}
 		} finally {
 			con.disconnect();
+		}
+		
+		if (json.get(cod) == "404") {
+			isValid = false;
+		} else {
+			isValid = true;
 		}
 	}
 	// Each day has 8 entries in the JSON Object. Each represents a 3 hour span on that day. Day 1 is : 0-7, Day 2 is: 8-15, Etc.

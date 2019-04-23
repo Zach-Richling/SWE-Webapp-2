@@ -21,6 +21,9 @@ public class Compute extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		WeatherAPICall currentData = new WeatherAPICall(request.getParameter("ZipCode"), 1);
 		WeatherAPICall data = new WeatherAPICall(request.getParameter("ZipCode"), 0);
+		if (!currentData.isValid) {
+			request.sendRedirect(encodeRedirectURL("https://zrichling-webbapp-3.herokuapp.com"));
+		}
 		String zip = request.getParameter("ZipCode");
 		highLow = request.getParameter("HighLow");
 		cloud = request.getParameter("CloudCover");
