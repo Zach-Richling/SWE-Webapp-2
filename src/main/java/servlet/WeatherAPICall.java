@@ -14,7 +14,7 @@ public class WeatherAPICall {
 
 	private static HttpURLConnection con;
 	public boolean isValid = true;
-	public JSONObject json;
+	public JSONObject json = new JSONObject();
 	
 	public WeatherAPICall(String zipcode, int check) throws MalformedURLException, ProtocolException, IOException {
 		String url = "http://api.openweathermap.org/data/2.5/forecast?zip=" +
@@ -38,6 +38,8 @@ public class WeatherAPICall {
 					content.append(line);
 					content.append(System.lineSeparator());
 				}
+			} catch (Exception e) {
+				isValid = false;
 			}
 			try {
 				json = new JSONObject(content.toString());
