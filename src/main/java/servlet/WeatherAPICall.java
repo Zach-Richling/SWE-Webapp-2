@@ -13,7 +13,7 @@ import org.json.*;
 public class WeatherAPICall {
 
 	private static HttpURLConnection con;
-	public isValid;
+	public boolean isValid;
 	public JSONObject json;
 	
 	public WeatherAPICall(String zipcode, int check) throws MalformedURLException, ProtocolException, IOException {
