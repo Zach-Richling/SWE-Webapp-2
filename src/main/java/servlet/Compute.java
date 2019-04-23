@@ -22,7 +22,14 @@ public class Compute extends HttpServlet {
 		WeatherAPICall currentData = new WeatherAPICall(request.getParameter("ZipCode"), 1);
 		WeatherAPICall data = new WeatherAPICall(request.getParameter("ZipCode"), 0);
 		if (!currentData.isValid) {
-			response.sendRedirect(response.encodeRedirectURL("https://zrichling-webbapp-3.herokuapp.com"));
+			response.setContentType("text/html");
+			final PrintWriter out = response.getWriter();
+			//response.sendRedirect(response.encodeRedirectURL("https://web-app3.herokuapp.com/"));
+			out.print("<script type=\"text/javascript\">");
+			out.print("alert('Invalid Zip Code');");
+			out.print("window.location = \"https://web-app3.herokuapp.com/\";");
+			out.print("</script>");
+			out.close();
 			return;
 		}
 		String zip = request.getParameter("ZipCode");
