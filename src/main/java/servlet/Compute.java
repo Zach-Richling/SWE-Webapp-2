@@ -27,7 +27,7 @@ public class Compute extends HttpServlet {
 			//response.sendRedirect(response.encodeRedirectURL("https://web-app3.herokuapp.com/"));
 			out.print("<script type=\"text/javascript\">");
 			out.print("alert('Invalid Zip Code');");
-			out.print("window.location = \"https://web-app3.herokuapp.com/\";");
+			out.print("window.location = \"https://zrichling-webbapp-3.herokuapp.com/\";");
 			out.print("</script>");
 			out.close();
 			return;
