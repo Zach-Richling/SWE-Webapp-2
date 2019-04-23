@@ -23,6 +23,7 @@ public class Compute extends HttpServlet {
 		WeatherAPICall data = new WeatherAPICall(request.getParameter("ZipCode"), 0);
 		if (!currentData.isValid) {
 			response.sendRedirect(response.encodeRedirectURL("https://zrichling-webbapp-3.herokuapp.com"));
+			return;
 		}
 		String zip = request.getParameter("ZipCode");
 		highLow = request.getParameter("HighLow");
