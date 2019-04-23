@@ -38,7 +38,7 @@ public class WeatherAPICall {
 					content.append(System.lineSeparator());
 				}
 			} catch (Exception e) {
-				isValid = false;
+				
 			}
 			try {
 				json = new JSONObject(content.toString());
