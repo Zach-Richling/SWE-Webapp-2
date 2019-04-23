@@ -38,13 +38,9 @@ public class WeatherAPICall {
 					content.append(line);
 					content.append(System.lineSeparator());
 				}
-			} catch (Exception e) {
-				isValid = false;
 			}
 			try {
-				if (isValid == true) {
 				json = new JSONObject(content.toString());
-				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
