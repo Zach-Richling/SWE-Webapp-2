@@ -146,7 +146,7 @@ public class Compute extends HttpServlet {
 		"<title>WeatherForcast</title>" +
 		"<style>" +
 		"html {" +
-		"	height: 100%;" +	
+		"	height: auto;" +	
 		"}" +
 		"body {" +
 		"	margin: 0;" +
